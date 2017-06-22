@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": "node loader.js",
+  "scripts": {
+    "start": "nodemon loader.js",
+    "dev": "nodemon loader.js",
+    "production": "pm2 start loader.js --name backend_motos"
+  },
   "author": "Thiago Luiz",
   "license": "ISC",
   "dependencies": {
