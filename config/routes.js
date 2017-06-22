@@ -6,7 +6,7 @@ module.exports = function (server) {
   const router = express.Router()
   server.use('/api', router)
 
-  //rotas da API
+  //adicionando rotas da API - CRUD
   const motosBRService = require('../api/motosBR/motosBRService')
-  motosBRService.register(router, '/motosBR')
+  motosBRService.register(router, '/motosbr')
 }
