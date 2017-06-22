@@ -12,3 +12,6 @@ server.listen(process.env.PORT || 4000, function () {
 })
 
 module.exports = server
+
+// "dev": "nodemon loader.js",
+// "production": "pm2 start loader.js --name backend_motos"
