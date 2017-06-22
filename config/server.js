@@ -7,8 +7,8 @@ const server = express()
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 
-server.listen(port, function () {
-  console.log(`Backend is running on port ${port}.`);
+server.listen(process.env.PORT || 4000, function () {
+  console.log('Listening on');
 })
 
 module.exports = server
