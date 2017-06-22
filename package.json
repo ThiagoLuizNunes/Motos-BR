@@ -1,0 +1,24 @@
+{
+  "name": "motos_br",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon loader.js",
+    "production": "pm2 start loader.js --name backend_motos"
+  },
+  "author": "Thiago Luiz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-query-int": "^1.0.1",
+    "mongoose": "^4.10.7",
+    "mongoose-paginate": "^5.0.3",
+    "node-restful": "^0.2.6",
+    "pm2": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
