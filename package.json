@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon loader.js",
-    "dev": "nodemon loader.js",
-    "production": "pm2 start loader.js --name backend_motos"
+    "start": "nodemon loader.js"
   },
   "author": "Thiago Luiz",
   "license": "ISC",
