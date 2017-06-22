@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon loader.js"
+    "start": "node loader.js"
   },
   "author": "Thiago Luiz",
   "license": "ISC",
