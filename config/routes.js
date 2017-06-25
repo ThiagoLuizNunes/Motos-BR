@@ -1,12 +1,23 @@
 const express = require('express')
+// const auth = require('./auth')
 
 module.exports = function (server) {
 
-  //API routes
-  const router = express.Router()
-  server.use('/api', router)
+  /*
+  * Rotas API abertas
+  */
+  const openApi = express.Router()
+  server.use('/', openApi)
 
-  //adicionando rotas da API - CRUD
-  const motosBRService = require('../api/motosBR/motosBRService')
-  motosBRService.register(router, '/motosbr')
+  /*
+    * Rotas API protegidas
+  */
+  const protectedApi = express.Router()
+  server.use('/api', protectedApi)
+
+  // protectedApi.use(auth)
+
+  //rotas da API
+  const motosService = require('../api/motorcycle/motorcycleService')
+  motosService.register(protectedApi, '/motorcycle')
 }
