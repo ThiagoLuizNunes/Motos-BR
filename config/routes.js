@@ -1,5 +1,6 @@
 const express = require('express')
 // const auth = require('./auth')
+const MotorcycleSearch = require('../api/motorcycle/motorcycleSearch')
 
 module.exports = function (server) {
 
@@ -8,7 +9,7 @@ module.exports = function (server) {
   */
   const openApi = express.Router()
   server.use('/', openApi)
-
+  server.get('/searchForBrand/:brand', MotorcycleSearch.searchForBrand)
   /*
     * Rotas API protegidas
   */
