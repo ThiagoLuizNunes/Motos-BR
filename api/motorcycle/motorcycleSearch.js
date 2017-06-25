@@ -3,9 +3,8 @@ const Motorcycle = require('./motorcycle')
 /*Search method by brand*/
 const searchByBrand = (req, res, next) => {
   const brand = req.params.brand
-  Motorcycle.find({'brand' : brand } , (err, motorcycle) => {
+  Motorcycle.find({'brand' : brand }, (err, motorcycle) => {
     if (err) {
-      console.log('ERROR');
       return handleError(err)
     }
     else {
@@ -14,5 +13,16 @@ const searchByBrand = (req, res, next) => {
   })
 }
 
-/*Search method by */
-module.exports = { searchByBrand }
+/*Search method by cylinder*/
+const searchByCylinder = (req, res, next) => {
+  const cylinder = req.params.cylinder
+  Motorcycle.find({'cylinder' : cylinder }, (err, motorcycle) => {
+    if (err) {
+      return handleError(err)
+    }
+    else {
+      res.json(motorcycle)
+    }
+  })
+}
+module.exports = { searchByBrand, searchByCylinder }
