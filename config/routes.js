@@ -9,7 +9,7 @@ module.exports = function (server) {
   */
   const openApi = express.Router()
   server.use('/', openApi)
-  server.get('/search-brand/:brand', MotorcycleSearch.searchForBrand)
+  server.get('/search-brand/:brand', MotorcycleSearch.searchByBrand)
   /*
     * Rotas API protegidas
   */

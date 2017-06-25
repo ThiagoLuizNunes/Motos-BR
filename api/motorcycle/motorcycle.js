@@ -5,6 +5,7 @@ const motorcycleSchema = new mongoose.Schema({
   name: { type: String, required: [true, 'Report the name of motorcycle'] },
   brand: { type: String, required: [true, 'Report the brand of motorcycle'],
     enum: ['honda', 'yamaha', 'suzuki'] },
+  cylinder: { type: String, required : [true, 'Report the cylinder capacity of motorcycle'] },
   style: { type: String, required : [[true, 'Report the style of motorcycle'] ]},
   potency: { type: String, required : [[true, 'Report the potency of motorcycle'] ]},
   torque: { type: String, required : [[true, 'Report the torque of motorcycle'] ]},

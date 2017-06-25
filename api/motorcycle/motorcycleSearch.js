@@ -1,7 +1,7 @@
 const Motorcycle = require('./motorcycle')
 
-const searchForBrand = (req, res, next) => {
-
+/*Search method by brand*/
+const searchByBrand = (req, res, next) => {
   const brand = req.params.brand
   Motorcycle.find({'brand' : brand } , (err, motorcycle) => {
     if (err) {
@@ -14,4 +14,5 @@ const searchForBrand = (req, res, next) => {
   })
 }
 
-module.exports = { searchForBrand }
+/*Search method by */
+module.exports = { searchByBrand }
