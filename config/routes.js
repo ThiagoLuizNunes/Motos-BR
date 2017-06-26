@@ -11,6 +11,7 @@ module.exports = function (server) {
   server.use('/', openApi)
   server.get('/search-brand/:brand', MotorcycleSearch.searchByBrand)
   server.get('/search-cylinder/:cylinder', MotorcycleSearch.searchByCylinder)
+  server.get('/search-style/:style', MotorcycleSearch.searchByStyle)
   /*
     * Rotas API protegidas
   */

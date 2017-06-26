@@ -25,4 +25,17 @@ const searchByCylinder = (req, res, next) => {
     }
   })
 }
-module.exports = { searchByBrand, searchByCylinder }
+
+/*Search method by style*/
+const searchByStyle = (req, res, next) => {
+  const style = req.params.style
+  Motorcycle.find({'style' : style }, (err, motorcycle) => {
+    if (err) {
+      return handleError(err)
+    }
+    else {
+      res.json(motorcycle)
+    }
+  })
+}
+module.exports = { searchByBrand, searchByCylinder, searchByStyle }
