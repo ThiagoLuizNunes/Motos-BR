@@ -1,12 +1,38 @@
+const _ = require('lodash')
 const Motorcycle = require('./motorcycle')
 
-//Cria API REST, ou seja, adiciona CRUD ao SCHEMA do mongo
+//Create REST API, adds CRUD to Mongog's schema
 Motorcycle.methods(['get', 'post', 'put', 'delete'])
-//Retorna objeto novo em PUT/POST
+
+//Return post/put methods updated
 Motorcycle.updateOptions({new: true, runValidators: true})
-//Adicionando rota, retornar quantidade de registros na collection
+
+//Middleware to intercept post/put methods
+Motorcycle.after('post', sendErrorsOrNext).after('put', sendErrorsOrNext)
+
+/*
+ * Standardizing errors handling
+*/
+function sendErrorsOrNext (req, res, next) {
+  const bundle = res.locals.bundle
+
+  if (bundle.errors) {
+    var errors = parseErrors(bundle.errors)
+    res.status(500).json({errors})
+  }
+  else {
+    next()
+  }
+}
+function parseErrors (nodeRestfulErrors) {
+  const errors = []
+  _.forIn(nodeRestfulErrors, error => errors.push(error.message))
+  return errors
+}
+
+//Adds rout for return numbers of records in collection
 Motorcycle.route('count', function (req, res, next) {
-  //Método count MongDB
+  //MongoDB's count method
   Motorcycle.count(function (error, value) {
     if (error) {
       res.status(500).json({errors: [error]})
