@@ -104,5 +104,20 @@ const searchByTank = (req, res, next) => {
   })
 }
 
+/*Search method by comparison*/
+const searchByComparison = (req, res, next) => {
+  const name1 = req.params.n1
+  const name2 = req.params.n2
+  Motorcycle.find({$or: [{name: name1} , {name: name2}]} , (err, motorcycle) => {
+    if (err) {
+      return handleError(err)
+    }
+    else {
+      res.json(motorcycle)
+    }
+  })
+}
+
 module.exports = { searchByBrand, searchByCylinder, searchByStyle, searchByPotency,
-                   searchByTorque, searchBySeat, searchByWeight, searchByTank }
+                   searchByTorque, searchBySeat, searchByWeight, searchByTank,
+                   searchByComparison }

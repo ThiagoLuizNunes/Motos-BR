@@ -5,29 +5,22 @@ const MotorcycleSearch = require('../api/motorcycle/motorcycleSearch')
 module.exports = function (server) {
 
   /*
-  * Rotas API abertas
+  * API open routes
   */
   const openApi = express.Router()
   server.use('/', openApi)
+  //Search routes
+  require('../api/motorcycle/motorcycleRoutes')(server, MotorcycleSearch)
 
-  server.get('/search-brand/:brand', MotorcycleSearch.searchByBrand)
-  server.get('/search-cylinder/:cylinder', MotorcycleSearch.searchByCylinder)
-  server.get('/search-style/:style', MotorcycleSearch.searchByStyle)
-  server.get('/search-potency/:potency', MotorcycleSearch.searchByPotency)
-  server.get('/search-torque/:torque', MotorcycleSearch.searchByTorque)
-  server.get('/search-seat/:seat', MotorcycleSearch.searchBySeat)
-  server.get('/search-weight/:weight', MotorcycleSearch.searchByWeight)
-  server.get('/search-tank/:tank', MotorcycleSearch.searchByTank)
-  
   /*
-    * Rotas API protegidas
+    * API closed routes
   */
   const protectedApi = express.Router()
   server.use('/api', protectedApi)
 
   // protectedApi.use(auth)
 
-  //rotas da API
+  //API routes
   const motosService = require('../api/motorcycle/motorcycleService')
   motosService.register(protectedApi, '/motorcycle')
 }
