@@ -1,21 +1,19 @@
 (function () {
-  angular.module('motosBR').controller('DashboardCtrl', [
+  angular.module('motorcycleBR').controller('DashboardCtrl', [
     '$http',
     DashboardController
   ])
 
-  // function DashboardController($http) {
-  //   const vm = this
-  //   vm.get = function () {
-  //     const url = 'http://localhost:3003/api/pagamentoSummary'
-  //     $http.get(url).then(function(response){
-  //       const {credito = 0, debito = 0} = response.data
-  //       vm.credito = credito
-  //       vm.debito = debito
-  //       vm.total = credito - debito
-  //     })
-  //   }
-  //
-  //   vm.getSummary()
-  // }
+  function DashboardController($http) {
+    const vm = this
+    vm.getTotalMotorcycle = function () {
+      const url = `http://localhost:4000/api/motorcycle/count`
+
+      $http.get(url).then(function(response){
+        vm.count = response.data.value
+      })
+    }
+
+    vm.getTotalMotorcycle()
+  }
 })()

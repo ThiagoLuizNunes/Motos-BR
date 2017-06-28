@@ -2,11 +2,9 @@
 
 <section class="content" ng-controller="DashboardCtrl as dash">
   <div class="row">
-    <!-- <value-box grid="12 4" color-class="bg-green" value="R$ {{ dash.credito | number: 2 }}"
-      text="Total de Créditos" icon-class="fa fa-bank"></value-box>
-    <value-box grid="12 4" color-class="bg-red" value="R$ {{ dash.debito | number: 2 }}"
-      text="Total de Débitos" icon-class="fa fa-credit-card"></value-box>
-    <value-box grid="12 4" color-class="bg-blue" value="R$ {{ dash.total | number: 2 }}"
-      text="Total de Consolidado" icon-class="fa fa-money"> </value-box> -->
+    <value-box grid="12 6" color-class="bg-olive" value="{{ dash.count }}"
+      text="Total de Motos" icon-class="fa fa-motorcycle"></value-box>
+    <value-box grid="12 6" color-class="bg-blue" value="{{ dash.count }}"
+      text="Total de Marcas" icon-class="fa fa-meetup"></value-box>
   </div>
 </section>
