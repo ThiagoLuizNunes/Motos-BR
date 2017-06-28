@@ -1,5 +1,5 @@
 const express = require('express')
-// const auth = require('./auth')
+const path = require('path');
 const MotorcycleSearch = require('../api/motorcycle/motorcycleSearch')
 
 module.exports = function (server) {
@@ -9,6 +9,7 @@ module.exports = function (server) {
   */
   const openApi = express.Router()
   server.use('/', openApi)
+  // server.use(express.static(path.join(__dirname, '../front-end/public')));
   //Search routes
   require('../api/motorcycle/motorcycleRoutes')(server, MotorcycleSearch)
 
