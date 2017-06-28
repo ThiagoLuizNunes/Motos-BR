@@ -9,7 +9,7 @@ module.exports = function (server) {
   */
   const openApi = express.Router()
   server.use('/', openApi)
-  server.use(express.static(path.join(__dirname, '../front-end')));
+  server.use(express.static(path.join(__dirname, '../front-end/public')));
   //Search routes
   require('../api/motorcycle/motorcycleRoutes')(server, MotorcycleSearch)
 
