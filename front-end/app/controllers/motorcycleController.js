@@ -1,10 +1,11 @@
 (function () {
   angular.module('motorcycleBR').controller('MotorcycleCtrl', [
     '$http',
+    'msgs',
     MotorcycleController
   ])
 
-  function MotorcycleController($http) {
+  function MotorcycleController($http, msgs) {
     const vm = this
 
     /*Post Method*/
@@ -12,9 +13,9 @@
       const url = 'http://localhost:4000/api/motorcycle/'
       $http.post(url, vm.motorcycles).then(function (response) {
         vm.motorcycles = {}
-        console.log('Success');
+        msgs.addSuccess('Operação realizada com sucesso!')
       }).catch(function (response) {
-        alert('Error to send POST!')
+        msgs.addError(response.data.errors)
       })
     }
 
