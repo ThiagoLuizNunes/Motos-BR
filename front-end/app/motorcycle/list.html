@@ -1,29 +1,42 @@
-<!-- <div class="box-body">
+<div class="box-body">
   <table class="table">
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Mês</th>
-        <th>Ano</th>
-        <th>Ações</th>
+        <th>Marca</th>
+        <th>Cilindrada</th>
+        <th>Estilo</th>
+        <th>Potência</th>
+        <th>Torque</th>
+        <th>Assento</th>
+        <th>Peso</th>
+        <th>Tanque</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pagamento in cpCtrl.cicloPagamentos">
-        <td>{{:: pagamento.nome }}</td>
-        <td>{{:: pagamento.mes }}</td>
-        <td>{{:: pagamento.ano }}</td>
+      <tr ng-repeat="motorcycle in mtCtrl.motorcycles">
+        <td>{{:: motorcycle.name }}</td>
+        <td>{{:: motorcycle.brand }}</td>
+        <td>{{:: motorcycle.cylinder }}</td>
+        <td>{{:: motorcycle.style }}</td>
+        <td>{{:: motorcycle.potency }}</td>
+        <td>{{:: motorcycle.torque }}</td>
+        <td>{{:: motorcycle.seat }}</td>
+        <td>{{:: motorcycle.weight }}</td>
+        <td>{{:: motorcycle.tank }}</td>
+
         <td class="table-actions">
-          <button class="btn btn-warning" ng-click="cpCtrl.showTabUpdate(pagamento)">
+          <button class="btn btn-warning" ng-click="">
             <i class="fa fa-pencil"></i>
           </button>
-          <button class="btn btn-danger" ng-click="cpCtrl.showTabDelete(pagamento)">
+          <button class="btn btn-danger" ng-click="">
             <i class="fa fa-trash-o"></i></button>
         </td>
+
       </tr>
     </tbody>
   </table>
-  <div class="box-footer clearfix">
-    <paginator url="/#!/cicloPagamentos" pages="{{ cpCtrl.pages }}"></paginator>
-  </div>
-</div> -->
+  <!-- <div class="box-footer clearfix">
+    <paginator url="/#!/motorcycles" pages="{{ mtCtrl.pages }}"></paginator>
+  </div> -->
+</div>

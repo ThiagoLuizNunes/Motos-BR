@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const motorcycleSchema = new mongoose.Schema({
   name: { type: String, required: [true, 'Informe o nome!'] },
   brand: { type: String, required: [true, 'Informe a marca'],
-    enum: ['honda', 'yamaha', 'suzuki'] },
+    enum: ['honda', 'yamaha', 'suzuki', 'shineray', 'traxx'] },
   cylinder: { type: Number, min: 0, required : [true, 'Informa a cilindrada'] },
   style: { type: String, required : [true, 'Informe o estilo'] },
   potency: { type: Number, min: 0, required : [true, 'Informe a pontência' ]},
