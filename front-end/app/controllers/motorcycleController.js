@@ -10,9 +10,9 @@
 
   function MotorcycleController($http, $location, msgs, sort, tabs) {
     const vm = this
-    // const url = 'http://localhost:4000/api/motorcycle'
+    const url = 'http://localhost:4000/api/motorcycle'
     //Heroku url
-    const url = 'https://motosbr.herokuapp.com/api/motorcycle'
+    // const url = 'https://motosbr.herokuapp.com/api/motorcycle'
 
     /*Get Method and Refresh*/
     vm.refresh = function () {
@@ -23,7 +23,7 @@
         tabs.show(vm,  {tabList: true, tabCreate: true, tabSearch:true})
 
         //Paginator
-        $http.get(`https://motosbr.herokuapp.com/api/motorcycle/count`).then(function (response) {
+        $http.get(`${url}/count`).then(function (response) {
           vm.pages = Math.ceil(response.data.value / 10)
         })
       })
@@ -70,8 +70,8 @@
     }
 
     vm.search = function () {
-      // const searchUrl = 'http://localhost:4000'
-      const searchUrl = 'https://motosbr.herokuapp.com'
+      const searchUrl = 'http://localhost:4000'
+      // const searchUrl = 'https://motosbr.herokuapp.com'
       if (vm.nameChoice) {
         if (vm.choice != undefined) {
           $http.get(`${searchUrl}/search-name/${vm.choice}`).then(function (response) {
