@@ -1,5 +1,3 @@
 node_modules
-app
-gulpTasks
-gulpfile.js
+public
 *.log
