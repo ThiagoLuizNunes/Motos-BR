@@ -1,13 +1,14 @@
 (function () {
   angular.module('motorcycleBR').controller('MotorcycleCtrl', [
     '$http',
+    '$location',
     'msgs',
     'sort',
     'tabs',
     MotorcycleController
   ])
 
-  function MotorcycleController($http, msgs, sort, tabs) {
+  function MotorcycleController($http, $location, msgs, sort, tabs) {
     const vm = this
     const url = 'http://localhost:4000/api/motorcycle'
     //Heroku url
@@ -15,10 +16,16 @@
 
     /*Get Method and Refresh*/
     vm.refresh = function () {
-      $http.get(url).then(function (response) {
+      const page = parseInt($location.search().page) || 1
+      $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(function (response) {
         vm.motorcycle = {}
         vm.motorcycles = sort.Data(response.data)
-        tabs.show(vm,  {tabList: true, tabCreate: true})
+        tabs.show(vm,  {tabList: true, tabCreate: true, tabSearch:true})
+
+        //Paginator
+        $http.get(`https://motosbr.herokuapp.com/api/motorcycle/count`).then(function (response) {
+          vm.pages = Math.ceil(response.data.value / 10)
+        })
       })
     }
     /*Post Method*/
@@ -60,6 +67,54 @@
     vm.showTabDelete = function (motorcycle) {
       vm.motorcycle = motorcycle
       tabs.show(vm, {tabDelete: true})
+    }
+
+    vm.search = function () {
+      const searchUrl = 'http://localhost:4000'
+      if (vm.nameChoice) {
+        if (vm.choice != undefined) {
+          $http.get(`${searchUrl}/search-name/${vm.choice}`).then(function (response) {
+            if (!(response.data.length == 0)) {
+              vm.motorcycles = response.data
+              console.log(response.data);
+            }
+            else {
+              vm.refresh()
+              msgs.addError('Busca não encontrada')
+            }
+          }).catch(function (response) {
+            msgs.addError(response.data.errors)
+          })
+        }
+        else {
+          vm.refresh()
+          msgs.addWarning('Campo vazio!')
+        }
+      }
+      else if (vm.brandChoice) {
+        if (vm.choice != undefined) {
+          $http.get(`${searchUrl}/search-brand/${vm.choice}`).then(function (response) {
+            if (!(response.data.length == 0)) {
+              vm.motorcycles = sort.Data(response.data)
+              console.log(response.data);
+            }
+            else {
+              vm.refresh()
+              msgs.addError('Busca não encontrada')
+            }
+          }).catch(function (response) {
+            msgs.addError(response.data.errors)
+          })
+        }
+        else {
+          vm.refresh()
+          msgs.addWarning('Campo vazio!')
+        }
+      }
+      else {
+        msgs.addWarning('Selecione uma categoria!')
+        vm.refresh()
+      }
     }
 
     vm.refresh()

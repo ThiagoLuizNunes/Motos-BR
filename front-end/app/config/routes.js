@@ -9,7 +9,7 @@
         url: "/dashboard",
         templateUrl: "dashboard/dashboard.html"
       }).state('motorcycle', {
-        url: "/motorcycle",
+        url: "/motorcycle?page",
         templateUrl: "motorcycle/tabs.html"
       })
     }

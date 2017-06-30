@@ -20,11 +20,16 @@
       addMsg(msgs, 'Sucesso', 'success')
     }
 
+    /*Show warning message method*/
+    function addWarning(msgs) {
+      addMsg(msgs, 'Warning', 'warning')
+    }
+
     /*Show error message method*/
     function addError(msgs) {
       addMsg(msgs, 'Erro', 'error')
     }
 
-    return { addSuccess, addError }
+    return { addSuccess, addError, addWarning }
   }
 })()
