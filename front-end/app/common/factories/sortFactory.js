@@ -1,5 +1,7 @@
 (function() {
-  angular.module('motorcycleBR').factory('sort', [ function() {
+  angular.module('motorcycleBR').factory('sort', [ SortFactory ])
+
+  function SortFactory() {
 
     function Data(data) {
       data.sort(function(a, b){
@@ -12,6 +14,7 @@
       })
       return data
     }
+
     return { Data }
-  }])
+  }
 })()
