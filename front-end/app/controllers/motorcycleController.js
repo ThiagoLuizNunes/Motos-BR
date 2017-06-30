@@ -17,6 +17,7 @@
     /*Get Method and Refresh*/
     vm.refresh = function () {
       const page = parseInt($location.search().page) || 1
+
       $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(function (response) {
         vm.motorcycle = {}
         vm.motorcycles = sort.Data(response.data)
@@ -69,7 +70,13 @@
       tabs.show(vm, {tabDelete: true})
     }
 
+    vm.swapChoice = function (name, brand) {
+      vm.nameChoice = name
+      vm.brandChoice = brand
+    }
+
     vm.search = function () {
+      vm.refresh()
       const searchUrl = 'http://localhost:4000'
       // const searchUrl = 'https://motosbr.herokuapp.com'
       if (vm.nameChoice) {
@@ -80,7 +87,6 @@
               console.log(response.data);
             }
             else {
-              vm.refresh()
               msgs.addError('Busca não encontrada')
             }
           }).catch(function (response) {
@@ -88,7 +94,6 @@
           })
         }
         else {
-          vm.refresh()
           msgs.addWarning('Campo vazio!')
         }
       }
@@ -100,7 +105,6 @@
               console.log(response.data);
             }
             else {
-              vm.refresh()
               msgs.addError('Busca não encontrada')
             }
           }).catch(function (response) {
@@ -108,13 +112,11 @@
           })
         }
         else {
-          vm.refresh()
           msgs.addWarning('Campo vazio!')
         }
       }
       else {
         msgs.addWarning('Selecione uma categoria!')
-        vm.refresh()
       }
     }
 
