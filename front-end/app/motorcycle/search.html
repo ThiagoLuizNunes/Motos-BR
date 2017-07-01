@@ -1,23 +1,23 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
-		        <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    	<span id="search_concept">Buscar por</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li ng-click="mtCtrl.swapChoice(true, false)"><a>Nome</a></li>
-                      <li ng-click="mtCtrl.swapChoice(false, true)"><a>Marca</a></li>
-                    </ul>
-                </div>
-                <input type="text" class="form-control" placeholder="ex:cb150" ng-model="mtCtrl.choice">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="mtCtrl.search()">
-                        <span class="fa fa-search"></span>
-                    </button>
-                </span>
-            </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="input-group">
+        <div class="input-group-btn search-panel">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span id="search_concept">Buscar por</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li ng-click="mtCtrl.swapChoice(true, false)"><a>Nome</a></li>
+            <li ng-click="mtCtrl.swapChoice(false, true)"><a>Marca</a></li>
+          </ul>
         </div>
-	</div>
+        <input type="text" class="form-control" placeholder="ex:cb150" ng-model="mtCtrl.choice">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="mtCtrl.search()">
+            <span class="fa fa-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
