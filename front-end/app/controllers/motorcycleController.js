@@ -21,11 +21,11 @@
       $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(function (response) {
         vm.motorcycle = {}
         vm.motorcycles = sort.Data(response.data)
-        tabs.show(vm,  {tabList: true, tabCreate: true, tabSearch:true})
 
         //Paginator
         $http.get(`${url}/count`).then(function (response) {
           vm.pages = Math.ceil(response.data.value / 10)
+          tabs.show(vm,  {tabList: true, tabCreate: true, tabSearch:true})
         })
       })
     }
@@ -87,9 +87,11 @@
               console.log(response.data);
             }
             else {
+              vm.refresh()
               msgs.addError('Busca não encontrada')
             }
           }).catch(function (response) {
+            vm.refresh()
             msgs.addError(response.data.errors)
           })
         }
@@ -105,13 +107,21 @@
               console.log(response.data);
             }
             else {
+              console.log(vm.choice);
+              vm.refresh()
               msgs.addError('Busca não encontrada')
             }
           }).catch(function (response) {
+            console.log(vm.choice);
+            vm.refresh()
             msgs.addError(response.data.errors)
           })
         }
+        else if(vm.choice == "") {
+          console.log("VAZIO");
+        }
         else {
+          console.log(vm.choice);
           msgs.addWarning('Campo vazio!')
         }
       }

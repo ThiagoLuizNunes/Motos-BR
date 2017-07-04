@@ -25,7 +25,7 @@
     template: `
     <ul ng-if="$ctrl.needPagination" class="pagination pagination-sm no-margin pull-right">
       <li ng-if="$ctrl.hasPrev">
-        <a href="{{ $ctrl.url }}?page={{ $ctrl.current - 1 }}">Anterior</a>
+        <a href="{{ $ctrl.url }}?page={{ $ctrl.current - 1 }}"> < </a>
       </li>
 
       <li ng-class="{active: $ctrl.isCurrent(index)}" ng-repeat="index in $ctrl.pagesArray">
@@ -33,7 +33,7 @@
       </li>
 
       <li ng-if="$ctrl.hasNext">
-        <a href="{{ $ctrl.url }}?page={{ $ctrl.current + 1 }}">Proximo</a>
+        <a href="{{ $ctrl.url }}?page={{ $ctrl.current + 1 }}"> > </a>
       </li>
     </ul>
     `

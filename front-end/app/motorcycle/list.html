@@ -6,12 +6,12 @@
         <th>Nome</th>
         <th>Marca</th>
         <th>Cilindrada</th>
-        <th>Estilo</th>
+        <!-- <th>Estilo</th>
         <th>Potência</th>
         <th>Torque</th>
         <th>Assento</th>
         <th>Peso</th>
-        <th>Tanque</th>
+        <th>Tanque</th> -->
       </tr>
     </thead>
     <tbody>
@@ -19,12 +19,12 @@
         <td>{{:: motorcycle.name }}</td>
         <td>{{:: motorcycle.brand }}</td>
         <td>{{:: motorcycle.cylinder }}</td>
-        <td>{{:: motorcycle.style }}</td>
+        <!-- <td>{{:: motorcycle.style }}</td>
         <td>{{:: motorcycle.potency }}</td>
         <td>{{:: motorcycle.torque }}</td>
         <td>{{:: motorcycle.seat }}</td>
         <td>{{:: motorcycle.weight }}</td>
-        <td>{{:: motorcycle.tank }}</td>
+        <td>{{:: motorcycle.tank }}</td> -->
 
         <td class="table-actions">
           <button class="btn btn-warning" ng-click="mtCtrl.showTabUpdate(motorcycle)">
@@ -37,7 +37,7 @@
       </tr>
     </tbody>
   </table>
-  <!-- <div class="box-footer clearfix">
-    <paginator url="/#!/motorcycles" pages="{{ mtCtrl.pages }}"></paginator>
-  </div> -->
+  <div ng-if="mtCtrl.pages > 1" class="box-footer clearfix">
+    <paginator url="/#!/motorcycle" pages="{{ mtCtrl.pages }}"></paginator>
+  </div>
 </div>

@@ -12,6 +12,8 @@
         url: "/motorcycle?page",
         templateUrl: "motorcycle/tabs.html"
       })
+
+      $urlRouterProvider.otherwise('/dashboard')
     }
   ])
 })()
