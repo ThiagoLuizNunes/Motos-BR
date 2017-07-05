@@ -1,4 +1,5 @@
 const express = require('express')
+const auth = require('./auth')
 const path = require('path');
 const MotorcycleSearch = require('../api/motorcycle/motorcycleSearch')
 
@@ -10,7 +11,14 @@ module.exports = function (server) {
   const openApi = express.Router()
   server.use('/', openApi)
   // server.use(express.static(path.join(__dirname, '../front-end/public')));
-  //Search routes
+
+  //Login/SingUp routes
+  const AuthService = require('../api/user/authService')
+  openApi.post('/login', AuthService.login)
+  openApi.post('/signup', AuthService.signup)
+  openApi.post('/validateToken', AuthService.validateToken)
+
+  //Search's routes
   require('../api/motorcycle/motorcycleRoutes')(server, MotorcycleSearch)
 
   /*
@@ -19,7 +27,7 @@ module.exports = function (server) {
   const protectedApi = express.Router()
   server.use('/api', protectedApi)
 
-  // protectedApi.use(auth)
+  protectedApi.use(auth)
 
   //API routes
   const motosService = require('../api/motorcycle/motorcycleService')
