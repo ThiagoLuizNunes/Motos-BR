@@ -13,7 +13,7 @@
     vm.changeMode = () => vm.loginMode = !vm.loginMode
 
     vm.login = () => {
-      auth.login(vm.user, err => err ? msgs.addError(err) : msgs.addSuccess('Sucesso'))
+      auth.login(vm.user, err => err ? msgs.addError(err) : $location.path('/'))
     }
     vm.signup = () => {
       auth.signup(vm.user, err => err ? msgs.addError(err) : $location.path('/'))
