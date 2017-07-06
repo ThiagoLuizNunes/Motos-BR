@@ -46,6 +46,7 @@ const signup = (req, res, next) => {
   const email = req.body.email || ''
   const password = req.body.password || ''
   const confirmPassword = req.body.confirm_password || ''
+  const keyAdmin = req.body.key || ''
 
   if(!email.match(emailRegex)) {
     console.log('email informado invalido');
@@ -62,6 +63,11 @@ const signup = (req, res, next) => {
   const passwordHash = bcrypt.hashSync(password, salt)
   if(!bcrypt.compareSync(confirmPassword, passwordHash)) {
     return res.status(400).send({errors: ['Senhas não conferem.']})
+  }
+
+  const keyHash = bcrypt.hashSync(keyAdmin, salt)
+  if(!bcrypt.compareSync(env.keyAdmin, keyHash)) {
+    return res.status(400).send({errors: ['Chave incorreta.']})
   }
 
   User.findOne({email}, (err, user) => {

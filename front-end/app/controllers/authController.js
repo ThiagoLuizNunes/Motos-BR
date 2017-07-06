@@ -2,7 +2,7 @@
   angular.module('motorcycleBR').controller('AuthCtrl', [
     '$location',
     'msgs',
-    // 'auth',
+    'auth',
     AuthController
   ])
 
@@ -13,7 +13,7 @@
     vm.changeMode = () => vm.loginMode = !vm.loginMode
 
     vm.login = () => {
-      auth.login(vm.user, err => err ? msgs.addError(err) : $location.path('/'))
+      auth.login(vm.user, err => err ? msgs.addError(err) : msgs.addSuccess('Sucesso'))
     }
     vm.signup = () => {
       auth.signup(vm.user, err => err ? msgs.addError(err) : $location.path('/'))
