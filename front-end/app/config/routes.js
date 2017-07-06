@@ -8,10 +8,10 @@
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
       $stateProvider.state('dashboard', {
         url: "/dashboard",
-        templateUrl: "dashboard/dashboard.html"
+        templateUrl: "template/dashboard/dashboard.html"
       }).state('motorcycle', {
         url: "/motorcycle?page",
-        templateUrl: "motorcycle/tabs.html"
+        templateUrl: "template/motorcycle/tabs.html"
       })
 
       $httpProvider.interceptors.push('handleResponseError')

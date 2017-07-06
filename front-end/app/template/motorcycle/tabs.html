@@ -31,15 +31,15 @@
 
     </ul>
     <div class="tab-content">
-      <div class="tab-pane" id="tabList" ng-include="'motorcycle/list.html'"
+      <div class="tab-pane" id="tabList" ng-include="'template/motorcycle/list.html'"
         ng-class="{active: mtCtrl.tabList}" ng-if="mtCtrl.tabList"></div>
-      <div class="tab-pane" id="tabCreate" ng-include="'motorcycle/form.html'"
+      <div class="tab-pane" id="tabCreate" ng-include="'template/motorcycle/form.html'"
         ng-if="mtCtrl.tabCreate"></div>
       <!-- <div class="tab-pane" id="tabSearch" ng-include="'motorcycle/search.html'"
         ng-if="mtCtrl.tabSearch"></div> -->
-      <div class="tab-pane" id="tabUpdate" ng-include="'motorcycle/form.html'"
+      <div class="tab-pane" id="tabUpdate" ng-include="'template/motorcycle/form.html'"
         ng-class="{active: mtCtrl.tabUpdate}" ng-if="mtCtrl.tabUpdate"></div>
-      <div class="tab-pane" id="tabDelete" ng-include="'motorcycle/form.html'"
+      <div class="tab-pane" id="tabDelete" ng-include="'template/motorcycle/form.html'"
         ng-class="{active: mtCtrl.tabDelete}" ng-if="mtCtrl.tabDelete"></div>
     </div>
   </div>

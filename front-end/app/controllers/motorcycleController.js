@@ -76,13 +76,13 @@
     }
 
     vm.search = function () {
-      vm.refresh()
       const searchUrl = 'http://localhost:4000'
       // const searchUrl = 'https://motosbr.herokuapp.com'
       if (vm.nameChoice) {
         if (vm.choice != undefined) {
           $http.get(`${searchUrl}/search-name/${vm.choice}`).then(function (response) {
             if (!(response.data.length == 0)) {
+              vm.motorcycles = {}
               vm.motorcycles = response.data
               console.log(response.data);
             }
@@ -103,25 +103,20 @@
         if (vm.choice != undefined) {
           $http.get(`${searchUrl}/search-brand/${vm.choice}`).then(function (response) {
             if (!(response.data.length == 0)) {
+              vm.motorcycles = {}
               vm.motorcycles = sort.Data(response.data)
               console.log(response.data);
             }
             else {
-              console.log(vm.choice);
               vm.refresh()
               msgs.addError('Busca não encontrada')
             }
           }).catch(function (response) {
-            console.log(vm.choice);
             vm.refresh()
             msgs.addError(response.data.errors)
           })
         }
-        else if(vm.choice == "") {
-          console.log("VAZIO");
-        }
         else {
-          console.log(vm.choice);
           msgs.addWarning('Campo vazio!')
         }
       }
