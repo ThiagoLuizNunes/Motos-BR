@@ -3,8 +3,9 @@
     //Injeção de dependência
     '$stateProvider',
     '$urlRouterProvider',
+    '$httpProvider',
 
-    function ($stateProvider, $urlRouterProvider) {
+    function ($stateProvider, $urlRouterProvider, $httpProvider) {
       $stateProvider.state('dashboard', {
         url: "/dashboard",
         templateUrl: "dashboard/dashboard.html"
@@ -12,6 +13,8 @@
         url: "/motorcycle?page",
         templateUrl: "motorcycle/tabs.html"
       })
+
+      $httpProvider.interceptors.push('handleResponseError')
       // $urlRouterProvider.otherwise('/dashboard')
     }
   ])
