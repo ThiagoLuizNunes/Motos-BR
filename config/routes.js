@@ -27,7 +27,7 @@ module.exports = function (server) {
   const protectedApi = express.Router()
   server.use('/api', protectedApi)
 
-  protectedApi.use(auth)
+  // protectedApi.use(auth)
 
   //API routes
   const motosService = require('../api/motorcycle/motorcycleService')

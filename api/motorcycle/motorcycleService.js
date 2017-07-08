@@ -1,6 +1,15 @@
 const _ = require('lodash')
 const Motorcycle = require('./motorcycle')
+const data = require('./data')
 
+// Motorcycle.collection.insert(data.yamaha, (err, docs) => {
+//   if (err) {
+//     res.status(500).json({errors: [error]})
+//   }
+//   else {
+//     console.log('Data was inserted with sucess!');
+//   }
+// })
 //Create REST API, adds CRUD to Mongog's schema
 Motorcycle.methods(['get', 'post', 'put', 'delete'])
 
