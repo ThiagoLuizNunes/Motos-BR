@@ -13,11 +13,6 @@
           <i class="fa fa-plus"></i> Incluir
         </a>
       </li>
-      <!-- <li ng-if="mtCtrl.tabSearch">
-        <a href data-target="#tabSearch" data-toggle="tab">
-          <i class="fa fa-search"></i> Buscar
-        </a>
-      </li> -->
       <li ng-if="mtCtrl.tabUpdate" ng-class="{active: mtCtrl.tabUpdate}">
         <a href data-target="#tabUpdate" data-toggle="tab">
           <i class="fa fa-pencil"></i> Alterar
@@ -35,8 +30,6 @@
         ng-class="{active: mtCtrl.tabList}" ng-if="mtCtrl.tabList"></div>
       <div class="tab-pane" id="tabCreate" ng-include="'template/motorcycle/form.html'"
         ng-if="mtCtrl.tabCreate"></div>
-      <!-- <div class="tab-pane" id="tabSearch" ng-include="'motorcycle/search.html'"
-        ng-if="mtCtrl.tabSearch"></div> -->
       <div class="tab-pane" id="tabUpdate" ng-include="'template/motorcycle/form.html'"
         ng-class="{active: mtCtrl.tabUpdate}" ng-if="mtCtrl.tabUpdate"></div>
       <div class="tab-pane" id="tabDelete" ng-include="'template/motorcycle/form.html'"

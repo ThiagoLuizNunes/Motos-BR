@@ -18,13 +18,13 @@
     vm.refresh = function () {
       const page = parseInt($location.search().page) || 1
 
-      $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(function (response) {
+      $http.get(`${url}?skip=${(page - 1) * 15}&limit=15`).then(function (response) {
         vm.motorcycle = {}
         vm.motorcycles = sort.Data(response.data)
 
         //Paginator
         $http.get(`${url}/count`).then(function (response) {
-          vm.pages = Math.ceil(response.data.value / 10)
+          vm.pages = Math.ceil(response.data.value / 15)
           tabs.show(vm,  {tabList: true, tabCreate: true, tabSearch:true})
         })
       })
