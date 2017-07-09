@@ -21,6 +21,7 @@
       $http.get(`${url}?skip=${(page - 1) * 15}&limit=15`).then(function (response) {
         vm.motorcycle = {}
         vm.motorcycles = sort.Data(response.data)
+        console.log(vm.motorcycles);
 
         //Paginator
         $http.get(`${url}/count`).then(function (response) {
@@ -76,6 +77,7 @@
     }
 
     vm.search = function () {
+      vm.pages = 0
       const searchUrl = 'http://localhost:4000'
       // const searchUrl = 'https://motosbr.herokuapp.com'
       if (vm.nameChoice) {
