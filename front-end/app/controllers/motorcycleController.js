@@ -37,15 +37,20 @@
     }
     /*Post Method*/
     vm.create = function () {
-      $http.get(`${searchUrl}/search-name/vm.motorcycle.name`).then(function (response) {
-        msgs.addError('Moto já cadastrada!')
+      $http.get(`${searchUrl}/search-name/${vm.motorcycle.name}`).then(function (response) {
+        if (response.data.length == 1) {
+          console.log(response);
+          msgs.addError('Moto já cadastrada!')
+        }
+        else {
+          $http.post(url, vm.motorcycle).then(function (response) {
+            vm.refresh()
+            msgs.addSuccess('Operação realizada com sucesso!')
+          }).catch(function (response) {
+            msgs.addError(response.data.errors)
+          })
+        }
       }).catch(function (response) {
-        $http.post(url, vm.motorcycle).then(function (response) {
-          vm.refresh()
-          msgs.addSuccess('Operação realizada com sucesso!')
-        }).catch(function (response) {
-          msgs.addError(response.data.errors)
-        })
       })
     }
 
@@ -123,7 +128,8 @@
             }
           }).catch(function (response) {
             vm.refresh()
-            msgs.addError(response.data.errors)
+            msgs.addError('Busca não encontrada')
+            // msgs.addError(response.data.errors)
           })
         }
         else {
