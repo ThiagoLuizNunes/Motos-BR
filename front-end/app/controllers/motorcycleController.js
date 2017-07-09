@@ -18,10 +18,13 @@
     vm.refresh = function () {
       const page = parseInt($location.search().page) || 1
 
-      $http.get(`${url}?skip=${(page - 1) * 15}&limit=15`).then(function (response) {
+      // $http.get(`${url}?skip=${(page - 1) * 15}&limit=15`).then(function (response) {
+      $http.get(`${url}`).then(function (response) {
         vm.motorcycle = {}
-        vm.motorcycles = sort.Data(response.data)
-        console.log(vm.motorcycles);
+        vm.auxMotorcycles = {}
+
+        vm.auxMotorcycles = sort.Data(response.data)
+        vm.motorcycles = vm.auxMotorcycles.slice((page - 1) * 15, (page - 1) * 15 + 15)
 
         //Paginator
         $http.get(`${url}/count`).then(function (response) {
