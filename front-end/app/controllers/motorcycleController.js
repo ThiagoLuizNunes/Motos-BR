@@ -13,6 +13,8 @@
     const url = 'http://localhost:4000/api/motorcycle'
     //Heroku url
     // const url = 'https://motosbr.herokuapp.com/api/motorcycle'
+    const searchUrl = 'http://localhost:4000'
+    // const searchUrl = 'https://motosbr.herokuapp.com'
 
     /*Get Method and Refresh*/
     vm.refresh = function () {
@@ -35,11 +37,15 @@
     }
     /*Post Method*/
     vm.create = function () {
-      $http.post(url, vm.motorcycle).then(function (response) {
-        vm.refresh()
-        msgs.addSuccess('Operação realizada com sucesso!')
+      $http.get(`${searchUrl}/search-name/vm.motorcycle.name`).then(function (response) {
+        msgs.addError('Moto já cadastrada!')
       }).catch(function (response) {
-        msgs.addError(response.data.errors)
+        $http.post(url, vm.motorcycle).then(function (response) {
+          vm.refresh()
+          msgs.addSuccess('Operação realizada com sucesso!')
+        }).catch(function (response) {
+          msgs.addError(response.data.errors)
+        })
       })
     }
 
@@ -81,8 +87,7 @@
 
     vm.search = function () {
       vm.pages = 0
-      const searchUrl = 'http://localhost:4000'
-      // const searchUrl = 'https://motosbr.herokuapp.com'
+
       if (vm.nameChoice) {
         if (vm.choice != undefined) {
           $http.get(`${searchUrl}/search-name/${vm.choice}`).then(function (response) {
