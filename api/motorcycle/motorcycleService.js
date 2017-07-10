@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const Motorcycle = require('./motorcycle')
-const data = require('./data')
+// const data = require('./data')
 
 // Motorcycle.collection.insert(data.yamaha, (err, docs) => {
 //   if (err) {

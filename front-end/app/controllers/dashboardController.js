@@ -1,14 +1,14 @@
 (function () {
   angular.module('motorcycleBR').controller('DashboardCtrl', [
     '$http',
+    'consts',
     DashboardController
   ])
 
-  function DashboardController($http) {
+  function DashboardController($http, consts) {
     const vm = this
     vm.getTotalMotorcycle = function () {
-      // const url = `https://motosbr.herokuapp.com/api/motorcycle/count`
-      const url = 'http://localhost:4000/api/motorcycle/count'
+      const url = `${consts.apiUrl}/motorcycle/count`
 
       $http.get(url).then(function(response){
         vm.count = response.data.value
