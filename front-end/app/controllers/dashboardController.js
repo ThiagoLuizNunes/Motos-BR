@@ -13,6 +13,9 @@
       $http.get(url).then(function(response){
         vm.count = response.data.value
       })
+      $http.get(`${url}-brands`).then(function(response){
+        vm.brands = response.data.value
+      })
     }
 
     vm.getTotalMotorcycle()

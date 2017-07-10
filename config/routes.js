@@ -10,7 +10,7 @@ module.exports = function (server) {
   */
   const openApi = express.Router()
   server.use('/', openApi)
-  // server.use(express.static(path.join(__dirname, '../front-end/public')));
+  // server.use(express.static(path.join(__dirname, '../public')));
 
   //Login/SingUp routes
   const AuthService = require('../api/user/authService')

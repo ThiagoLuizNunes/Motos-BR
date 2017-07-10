@@ -50,4 +50,32 @@ Motorcycle.route('count', function (req, res, next) {
     }
   })
 })
+
+Motorcycle.route('count-brands', function (req, res, next) {
+  Motorcycle.find({}, 'brand', (err, motorcycle) => {
+    if (err) {
+      return handleError(err)
+    }
+    else {
+      let arr = []
+      for (var i = 0; i < motorcycle.length; i++) {
+        if (!findArray(motorcycle[i].brand, arr)) {
+          arr.push(motorcycle[i].brand)
+        }
+      }
+      res.json({value : arr.length})
+    }
+  })
+})
+
+function findArray(element, array) {
+  let bol = false
+  for (let i = 0; i < array.length; i++) {
+    if (element === array[i]) {
+      return true
+    }
+  }
+  return false
+}
+
 module.exports = Motorcycle
