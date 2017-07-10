@@ -5,22 +5,18 @@
     'msgs',
     'sort',
     'tabs',
+    'consts',
     MotorcycleController
   ])
 
-  function MotorcycleController($http, $location, msgs, sort, tabs) {
+  function MotorcycleController($http, $location, msgs, sort, tabs, consts) {
     const vm = this
-    const url = 'http://localhost:4000/api/motorcycle'
-    //Heroku url
-    // const url = 'https://motosbr.herokuapp.com/api/motorcycle'
-    const searchUrl = 'http://localhost:4000'
-    // const searchUrl = 'https://motosbr.herokuapp.com'
+    const url = `${consts.apiUrl}/motorcycle`
 
     /*Get Method and Refresh*/
     vm.refresh = function () {
       const page = parseInt($location.search().page) || 1
 
-      // $http.get(`${url}?skip=${(page - 1) * 15}&limit=15`).then(function (response) {
       $http.get(`${url}`).then(function (response) {
         vm.motorcycle = {}
         vm.auxMotorcycles = {}
@@ -37,7 +33,7 @@
     }
     /*Post Method*/
     vm.create = function () {
-      $http.get(`${searchUrl}/search-name/${vm.motorcycle.name}`).then(function (response) {
+      $http.get(`${consts.oapiUrl}/search-name/${vm.motorcycle.name}`).then(function (response) {
         if (response.data.length == 1) {
           console.log(response);
           msgs.addError('Moto já cadastrada!')
@@ -95,7 +91,7 @@
 
       if (vm.nameChoice) {
         if (vm.choice != undefined) {
-          $http.get(`${searchUrl}/search-name/${vm.choice}`).then(function (response) {
+          $http.get(`${consts.oapiUrl}/search-name/${vm.choice}`).then(function (response) {
             if (!(response.data.length == 0)) {
               vm.motorcycles = {}
               vm.motorcycles = response.data
@@ -116,7 +112,7 @@
       }
       else if (vm.brandChoice) {
         if (vm.choice != undefined) {
-          $http.get(`${searchUrl}/search-brand/${vm.choice}`).then(function (response) {
+          $http.get(`${consts.oapiUrl}/search-brand/${vm.choice}`).then(function (response) {
             if (!(response.data.length == 0)) {
               vm.motorcycles = {}
               vm.motorcycles = sort.Data(response.data)
@@ -129,7 +125,6 @@
           }).catch(function (response) {
             vm.refresh()
             msgs.addError('Busca não encontrada')
-            // msgs.addError(response.data.errors)
           })
         }
         else {
