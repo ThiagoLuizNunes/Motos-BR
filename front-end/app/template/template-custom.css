@@ -9,8 +9,9 @@ html { background-color: #ecf0f5; }
 .table-actions {width: 140px;}
 .searchClass {margin-bottom: 20px}
 .authImage {
-  width: 45%;
+  width: 55%;
   height: 70%;
   display: block;
   margin: auto;
+  margin-bottom: 15px;
 }
