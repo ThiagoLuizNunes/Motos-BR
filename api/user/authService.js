@@ -36,7 +36,6 @@ const login = (req, res, next) => {
 const validateToken = (req, res, next) => {
   const token = req.body.token || ''
   jwt.verify(token, env.authSecret, function(err, decoded) {
-    console.log(`${!err}`);
     return res.status(200).send({valid: !err})
   })
 }
@@ -50,7 +49,6 @@ const signup = (req, res, next) => {
   const keyAdmin = req.body.key || ''
 
   if(!email.match(emailRegex)) {
-    console.log('email informado invalido');
     return res.status(400).send({errors: ['O e-mail informado está inválido']})
   }
 

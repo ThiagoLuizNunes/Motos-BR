@@ -22,7 +22,7 @@
     vm.getUser = () => auth.getUser()
 
     vm.logout = () => {
-      auth.logout(() => $location.path('/auth'))
+      auth.logout(() => $location.path('auth'))
     }
   }
 })()

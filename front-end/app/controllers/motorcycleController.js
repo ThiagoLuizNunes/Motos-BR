@@ -35,7 +35,6 @@
     vm.create = function () {
       $http.get(`${consts.oapiUrl}/search-name/${vm.motorcycle.name}`).then(function (response) {
         if (response.data.length == 1) {
-          console.log(response);
           msgs.addError('Moto já cadastrada!')
         }
         else {
@@ -95,7 +94,6 @@
             if (!(response.data.length == 0)) {
               vm.motorcycles = {}
               vm.motorcycles = response.data
-              console.log(response.data);
             }
             else {
               vm.refresh()
@@ -116,7 +114,6 @@
             if (!(response.data.length == 0)) {
               vm.motorcycles = {}
               vm.motorcycles = sort.Data(response.data)
-              console.log(response.data);
             }
             else {
               vm.refresh()

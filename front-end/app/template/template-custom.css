@@ -5,6 +5,7 @@ html { background-color: #ecf0f5; }
   position: fixed;
   bottom: 0px;
   width: 100%;
+  margin-top: 20px;
 }
 .table-actions {width: 140px;}
 .searchClass {margin-bottom: 20px}
