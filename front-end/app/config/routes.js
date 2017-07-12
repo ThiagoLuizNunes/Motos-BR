@@ -6,16 +6,40 @@
     '$httpProvider',
 
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
-      $stateProvider.state('dashboard', {
-        url: "/dashboard",
-        templateUrl: "template/dashboard/dashboard.html"
+      $stateProvider.state('motos', {
+        url: "/",
+        templateUrl: "template/website/motosbr.html"
+      }).state('admin', {
+        url: "/admin",
+        views: {
+          '': {
+            templateUrl: 'admin.html'
+          },
+          'view-admin@admin': {
+            templateUrl: 'template/dashboard/dashboard.html'
+          }
+        }
+      }).state('dashboard', {
+        parent: 'admin',
+        views: {
+          'view-admin@admin': {
+            templateUrl: 'template/dashboard/dashboard.html'
+          }
+        }
       }).state('motorcycle', {
-        url: "/motorcycle?page",
-        templateUrl: "template/motorcycle/tabs.html"
+        parent: 'admin',
+        views: {
+          'view-admin@admin': {
+            templateUrl: 'template/motorcycle/tabs.html'
+          }
+        }
+      }).state('auth', {
+        url: "/auth",
+        templateUrl: "auth.html"
       })
 
-      $httpProvider.interceptors.push('handleResponseError')
-      // $urlRouterProvider.otherwise('/dashboard')
+      $urlRouterProvider.otherwise('/');
+      // $httpProvider.interceptors.push('handleResponseError')
     }
   ])
   .run([
@@ -23,27 +47,50 @@
     '$http',
     '$location',
     '$window',
+    '$state',
     'auth',
-    function ($rootScope, $http, $location, $window, auth) {
+    function ($rootScope, $http, $location, $window, $state, auth) {
       validateUser()
       $rootScope.$on('$locationChangeStart', () => validateUser())
 
       function validateUser() {
         const user = auth.getUser()
-        const authPage = '/auth.html'
+        const authPage = 'auth'
+        const adminPage = 'admin'
+        const isAdmin = $window.location.href.includes(adminPage)
         const isAuthPage = $window.location.href.includes(authPage)
 
-        if (!user && !isAuthPage) {
-          $window.location.href = authPage
+        if (!user && isAdmin) {
+          console.log('!user e isAdmin, comeback to authPage');
+          // $window.location.href = '#!/auth'
+          $location.path(authPage)
+        }
+        if (user && $state.is('auth')) {
+          console.log('To em AUTHPAGE');
+          $window.location.href = '#!/admin'
+          $location.path(adminPage)
+        }
+        if (user && isAuthPage) {
+          if (user.isValid) {
+            console.log('isValid isAuthPage, comeback to adminPage');
+            // $window.location.href = '#!/admin'
+            $location.path(adminPage)
+          }
         }
         else if (user && !user.isValid) {
             auth.validateToken(user.token, (err, valid) => {
               if (!valid) {
-                $window.location.href = authPage
-              } else {
+                console.log('Error response, comeback to authPage');
+                $location.path(adminPage)
+                // $window.location.href = authPage
+              }
+              else {
                 user.isValid = true
                 $http.defaults.headers.common.Authorization = user.token
-                isAuthPage ? $window.location.href = '/' : $location.path('/dashboard')
+                if (isAuthPage) {
+                  console.log(`${isAuthPage} ${user.token}`);
+                  $location.path(adminPage)
+                }
               }
             })
         }

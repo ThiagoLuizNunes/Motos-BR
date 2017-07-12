@@ -28,8 +28,6 @@
           $http.defaults.headers.common.Authorization = resp.data.token
           if (callback) callback(null, resp.data)
         }).catch(function (resp) {
-          console.log('Deu ERRO em SUBMIT');
-          console.log(resp);
           if (callback) callback(resp.data.errors, null)
         })
     }
@@ -46,6 +44,7 @@
         $http.post(`${consts.oapiUrl}/validateToken`, { token })
           .then(resp => {
             if (!resp.data.valid) {
+            console.log('Erro validate response, logout() is call');
             logout()
             } else {
               $http.defaults.headers.common.Authorization = getUser().token

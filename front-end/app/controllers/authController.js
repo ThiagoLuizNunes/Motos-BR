@@ -13,16 +13,16 @@
     vm.changeMode = () => vm.loginMode = !vm.loginMode
 
     vm.login = () => {
-      auth.login(vm.user, err => err ? msgs.addError(err) : $location.path('/'))
+      auth.login(vm.user, err => err ? msgs.addError(err) : $location.path('admin'))
     }
     vm.signup = () => {
-      auth.signup(vm.user, err => err ? msgs.addError(err) : $location.path('/'))
+      auth.signup(vm.user, err => err ? msgs.addError(err) : $location.path('admin'))
     }
 
     vm.getUser = () => auth.getUser()
 
     vm.logout = () => {
-      auth.logout(() => $location.path('/'))
+      auth.logout(() => $location.path('/auth'))
     }
   }
 })()

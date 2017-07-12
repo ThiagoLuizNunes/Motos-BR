@@ -10,7 +10,7 @@
     function responseError(errorResponse) {
       if (errorResponse.status === 403) {
         localStorage.removeItem(consts.userKey)
-        $window.location.href = '/'
+        $window.location.href = '#!/auth'
       }
       return $q.reject(errorResponse)
     }

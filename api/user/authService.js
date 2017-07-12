@@ -36,6 +36,7 @@ const login = (req, res, next) => {
 const validateToken = (req, res, next) => {
   const token = req.body.token || ''
   jwt.verify(token, env.authSecret, function(err, decoded) {
+    console.log(`${!err}`);
     return res.status(200).send({valid: !err})
   })
 }
