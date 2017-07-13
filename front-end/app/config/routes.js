@@ -13,29 +13,29 @@
         url: "/admin",
         views: {
           '': {
-            templateUrl: 'admin.html'
+            templateUrl: 'template/admin/admin.html'
           },
           'view-admin@admin': {
-            templateUrl: 'template/dashboard/dashboard.html'
+            templateUrl: 'template/admin/dashboard/dashboard.html'
           }
         }
       }).state('dashboard', {
         parent: 'admin',
         views: {
           'view-admin@admin': {
-            templateUrl: 'template/dashboard/dashboard.html'
+            templateUrl: 'template/admin/dashboard/dashboard.html'
           }
         }
       }).state('motorcycle', {
         parent: 'admin',
         views: {
           'view-admin@admin': {
-            templateUrl: 'template/motorcycle/tabs.html'
+            templateUrl: 'template/admin/motorcycle/tabs.html'
           }
         }
       }).state('auth', {
         url: "/auth",
-        templateUrl: "auth.html"
+        templateUrl: "template/admin/auth/auth.html"
       })
 
       $urlRouterProvider.otherwise('/');
