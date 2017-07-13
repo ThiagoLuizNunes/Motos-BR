@@ -67,22 +67,19 @@
         }
         if (user && $state.is('auth')) {
           console.log('To em AUTHPAGE');
-          $window.location.href = '#!/admin'
+          // $window.location.href = '#!/admin'
           $location.path(adminPage)
         }
-        if (user && isAuthPage) {
-          if (user.isValid) {
-            console.log('isValid isAuthPage, comeback to adminPage');
-            // $window.location.href = '#!/admin'
-            $location.path(adminPage)
-          }
+        else if (user && isAuthPage) {
+          console.log("OIIIIIi");
+          console.log(user.isValid);
+          $location.path(adminPage)
         }
         else if (user && !user.isValid) {
             auth.validateToken(user.token, (err, valid) => {
               if (!valid) {
                 console.log('Error response, comeback to authPage');
                 $location.path(adminPage)
-                // $window.location.href = authPage
               }
               else {
                 user.isValid = true
