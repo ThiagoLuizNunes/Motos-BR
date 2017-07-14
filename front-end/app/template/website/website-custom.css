@@ -10,6 +10,9 @@
   color: #FFFFFF;
   font-family: Arcon-Regular, sans-serif;
 }
+.shrink {
+  background-color: red;
+}
 #nav {
   text-align: center;
   width: 100%;
@@ -75,6 +78,9 @@ nav.navbar-default .navbar-toggle .icon-bar {
   background-color: #EEEEEE;
 }
 nav.navbar-default .navbar-toggle:focus{
+  background-color: transparent;
+}
+nav.navbar-default .navbar-toggle:hover {
   background-color: transparent;
 }
 nav.navbar-default .navbar-toggle:hover .icon-bar {
