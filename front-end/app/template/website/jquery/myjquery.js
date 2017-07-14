@@ -6,7 +6,9 @@ $(window).scroll(function() {
     });
   }
   else {
-    $("#mybar").css({"background-color": "rgba(0, 0, 0, 0.5)"});
-    "transition": "background-color 0.5s ease"
+    $("#mybar").css({
+      "background-color": "rgba(0, 0, 0, 0.5)",
+      "transition": "background-color 0.5s ease"
+    });
   }
 });

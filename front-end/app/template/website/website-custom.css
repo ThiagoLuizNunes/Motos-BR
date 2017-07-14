@@ -5,7 +5,8 @@
 @font-face { font-family: Arcon-Regular; src: url('../fonts/Arcon-Regular.otf'); }
 .div-main{
   height: 500px;
-  background-color: #F5F5F5;
+  /*background-color: #F5F5F5;*/
+  background-color: black;
   background-size: cover;
   color: #FFFFFF;
   font-family: Arcon-Regular, sans-serif;
@@ -137,10 +138,23 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
   display: inline-block;
   background-color: rgba(0, 0, 0, 0.5);
 }
+div.carousel-caption {
+  /*position: sticky;
+  left: auto;
+  right: auto;*/
+}
 div#div-container {
   width: 100%;
   padding: inherit;
 }
-/*div#div-inner {
-  height: 780px;
-}*/
+img#image {
+  margin:0 auto;
+  position: relative;
+  max-width: 1920px;
+  max-height: 780px;
+}
+div#div-inner {
+  max-height: 780px;
+  padding: 0;
+  position: relative;
+}
