@@ -8,57 +8,15 @@
   background-color: #F5F5F5;
   background-size: cover;
   color: #FFFFFF;
-  /*font-family: Aileron-Light, sans-serif;*/
-  /*font-family: Anke, sans-serif;*/
-  /*font-family: Caliban, sans-serif;*/
   font-family: Arcon-Regular, sans-serif;
-  /*font-family: AspergitBold, sans-serif;*/
-
 }
 #nav {
   text-align: center;
   width: 100%;
-  height: 700px;
-  background: url('../imgs/background3.jpg');
+  height: auto;
+  /*background: url('../imgs/background3.jpg');*/
   background-size: cover;
 }
-#nav-wrapper h1 {
-  margin-top: auto;
-  padding-top: 15px;
-  padding-left: 40px;
-  float: left;
-}
-#nav-wrapper {
-  height: 70px;
-  width: 100%;
-  background: #212121;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: .8;
-}
-#nav-wrapper-inside {
-  height: 100%;
-}
-#nav-wrapper ul {
-  height: 100%;
-  padding-top: 20px;
-}
-#nav-wrapper ul li {
-  list-style: none;
-  display: inline;
-  font-size: 15px;
-  font-weight: 800;
-  font-weight: bold;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 30px;
-}
-#nav-wrapper a {
-  color: white;
-  text-decoration: none;
-}
-
 nav.navbar-default {
   height: 70px;
   border: 0;
@@ -89,7 +47,6 @@ nav.navbar-default .navbar-nav > li > a:focus {
   color: #26A69A;
 }
 nav.navbar-default .navbar-brand {
-  /*margin-right: 50px;*/
   color: #EEEEEE;
   max-width: 200px;
   margin-top: 5px;
@@ -112,49 +69,68 @@ nav.navbar-default .navbar-header {
   height: 100%;
 }
 nav.navbar-default .navbar-toggle {
-    border-color: #EEEEEE;
+  margin-top: 10px;
+}
+nav.navbar-default .navbar-toggle .icon-bar {
+  background-color: #EEEEEE;
+}
+nav.navbar-default .navbar-toggle:focus{
+  background-color: transparent;
+}
+nav.navbar-default .navbar-toggle:hover .icon-bar {
+  background-color: #26A69A;
 }
 @media (max-width: 992px) {
-    div#nav-bar {
-      background-color: rgba(0, 0, 0, 0.5);
-      /*margin: auto;*/
-    }
-    nav.navbar-default .navbar-header {
-        float: none;
-    }
-    nav.navbar-default .navbar-left,.navbar-right {
-        float: none !important;
-    }
-    nav.navbar-default .navbar-toggle {
-        display: block;
-    }
-    nav.navbar-default .navbar-collapse {
-      background-color: rgba(0, 0, 0, 0.5);
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    nav.navbar-default .navbar-fixed-top {
-        top: 0;
-        border-width: 0 0 1px;
-    }
-    nav.navbar-default .navbar-collapse.collapse {
-        display: none!important;
-    }
-    nav.navbar-default .navbar-nav {
-        float: none!important;
-        margin-top: 7.5px;
-    }
-    nav.navbar-default .navbar-nav>ul {
-    }
-    nav.navbar-default .navbar-nav>li {
-        padding-right: 0px;
-        float: none;
-    }
-    nav.navbar-default .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    nav.navbar-default .collapse.in{
-        display:block !important;
-    }
+  div#nav-bar {
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    /*margin: auto;*/
+  }
+  nav.navbar-default .navbar-header {
+      float: none;
+  }
+  nav.navbar-default .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  nav.navbar-default .navbar-toggle {
+      display: block;
+  }
+  nav.navbar-default .navbar-collapse {
+      /*background-color: rgba(0, 0, 0, 0.5);*/
+      background-color: #212121;
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  nav.navbar-default .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  nav.navbar-default .navbar-collapse.collapse {
+      display: none!important;
+  }
+  nav.navbar-default .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  nav.navbar-default .navbar-nav>ul {
+  }
+  nav.navbar-default .navbar-nav>li {
+      padding-right: 0px;
+      float: none;
+  }
+  nav.navbar-default .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  nav.navbar-default .collapse.in{
+      display:block !important;
+  }
+}
+
+/*Carousel CSS*/
+div#div-container {
+  width: 100%;
+  padding: inherit;
+}
+div#div-inner {
+  height: 780px;
 }
