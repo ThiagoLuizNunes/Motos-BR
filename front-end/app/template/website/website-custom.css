@@ -69,17 +69,35 @@ nav.navbar-default ul {
   height: 100%;
   padding-top: 10px;
 }
+nav.navbar-default ul li{
+  padding-right: 20px;
+}
 nav.navbar-default .navbar-nav > li > a {
-    color: #EEEEEE;
+  transition-duration: 200ms;
+  color: #EEEEEE;
+}
+nav.navbar-default .navbar-nav > li > a:hover {
+  color: #26A69A;
+}
+nav.navbar-default .navbar-nav > li > a:focus {
+  color: #26A69A;
 }
 nav.navbar-default .navbar-brand {
-    color: #EEEEEE;
-    max-width: 200px;
-    margin-top: 5px;
-    padding-top: 20px;
-    padding-left: 40px;
-    float: left;
+  margin-right: 50px;
+  color: #EEEEEE;
+  max-width: 200px;
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-left: 40px;
+  float: left;
 }
+nav.navbar-default .navbar-header > a:hover {
+  color: #EEEEEE;
+}
+nav.navbar-default .navbar-header > a:focus {
+  color: #EEEEEE;
+}
+
 nav.navbar-default .container-fluid {
   height: 100%;
   width: 100%;
