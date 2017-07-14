@@ -10,9 +10,6 @@
   color: #FFFFFF;
   font-family: Arcon-Regular, sans-serif;
 }
-.shrink {
-  background-color: red;
-}
 #nav {
   text-align: center;
   width: 100%;
@@ -133,10 +130,17 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
 }
 
 /*Carousel CSS*/
+.box {
+  padding: 50px;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 div#div-container {
   width: 100%;
   padding: inherit;
 }
-div#div-inner {
+/*div#div-inner {
   height: 780px;
-}
+}*/
