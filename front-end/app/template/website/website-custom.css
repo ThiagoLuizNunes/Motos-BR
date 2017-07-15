@@ -127,24 +127,72 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
 }
 
 /*Carousel CSS*/
-.box {
+.carousel-caption {
+  top: 7%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  background-color: rgba(0,0,0, 0.3);
+}
+.alling {
+  position: relative;
+  top: 40%;
+  height: 100%;
+}
+.thema {
+  position: relative;
+  width: 50%;
+  font-size: 45px;
+  color: #ffffff;
+  transition: transform 400ms ease-in-out;
+}
+.my-box {
+  margin-top: 50px;
+  position: relative;
+  padding-top: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 25%;
+  height: 8%;
+
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px rgba(0,0,0, 0.2);
+
+  /*background-color: rgba(0,0,0, 0.1);*/
+  background-color: transparent;
+  border:3px solid rgba(0,137,123, 0.8);
+
+  transition:
+    background-color 0.3s ease,
+    transform 400ms ease-in-out;
+}
+.my-box:hover {
+  border:3px solid transparent;
+  background-color: rgba(0,137,123, 0.5);
+  box-sizing: border-box;
+}
+/*.box {
+  position: relative;
   padding-top: 15px;
   padding-left: 8px;
   padding-right: 8px;
   margin: 0 auto;
   width: 200px;
   height: 55px;
-  display: inline-block;
 
   font-size: 13px;
   font-weight: bold;
-  text-align: center;
 
   background-color: rgba(0,137,123, 0.5);
   background-color: transparent;
   border:3px solid rgba(0,137,123, 0.8);
 
-  transform: translate(0px, -100px);
+  transform: translate(0px, 200px);
   transition:
     background-color 0.2s ease,
     transform 400ms ease-in-out;
@@ -153,7 +201,7 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
   border:3px solid transparent;
   background-color: rgba(0,137,123, 0.5);
   box-sizing: border-box;
-}
+}*/
 
 .carousel-indicators  li {
   visibility:hidden;
@@ -206,3 +254,18 @@ img#image {
 div#div-inner {
   max-height: 780px;
 }
+/*@media (max-width: 640px) {
+  .box {
+    padding-top: 0px;
+    width: 150px;
+    height: 22px;
+    margin: 0 auto;
+    display: inline-block;
+    background-color: rgba(0,0,0, 0.2);
+
+    font-size: 12px;
+    font-weight: normal;
+    transform: translate(0px, -20px);
+    border:2px solid rgba(0,137,123, 0.8);
+  }
+}*/
