@@ -128,15 +128,71 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
 
 /*Carousel CSS*/
 .box {
-  padding: inherit;
-  width: 300px;
-  height: 70px;
+  padding-top: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 0 auto;
+  width: 200px;
+  height: 55px;
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-top: 0px;
-  /*transform: translate(0px, -100px);*/
-  transition: transform 200ms ease-in-out;
+
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+
+  background-color: rgba(0,137,123, 0.5);
+  background-color: transparent;
+  border:3px solid rgba(0,137,123, 0.8);
+
+  transform: translate(0px, -100px);
+  transition:
+    background-color 0.2s ease,
+    transform 400ms ease-in-out;
 }
+.box:hover {
+  border:3px solid transparent;
+  background-color: rgba(0,137,123, 0.5);
+  box-sizing: border-box;
+}
+
+.carousel-indicators  li {
+  visibility:hidden;
+  background-color: #EEEEEE;
+
+  margin: 5px;
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+  border-radius: 10%;
+  opacity:0;
+  transition:
+    visibility 0s linear 0.2s,
+    opacity 0.2s linear,
+    background-color 0.2s linear,
+    border-color 0.2s linear;
+}
+.carousel-indicators .active {
+  background-color: transparent;
+  border-color: rgb(0,137,123);
+  width: 20px;
+  height: 20px;
+}
+.carousel-control span {
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0s linear 0.2s,opacity 0.2s linear;
+}
+.carousel:hover .carousel-indicators li {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}
+.carousel:hover .carousel-control span {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}
+
 div#div-container {
   width: 100%;
   padding: inherit;

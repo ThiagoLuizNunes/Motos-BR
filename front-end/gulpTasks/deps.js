@@ -16,6 +16,9 @@ gulp.task('deps.js', function () {
     'node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
     'node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js',
     'node_modules/admin-lte/dist/js/app.min.js',
+    //
+    'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
   ])
   .pipe(uglify())
   .pipe(concat('deps.min.js'))
@@ -29,6 +32,8 @@ gulp.task('deps.css', function () {
     'node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
     'node_modules/admin-lte/dist/css/AdminLTE.min.css',
     'node_modules/admin-lte/dist/css/skins/_all-skins.min.css',
+    //
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
   ])
   .pipe(uglifycss({ "uglyComments": true }))
   .pipe(concat('deps.min.css'))
