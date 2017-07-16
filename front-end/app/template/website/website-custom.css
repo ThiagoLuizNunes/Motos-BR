@@ -103,7 +103,7 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
   width: 50%;
   font-size: 45px;
   color: #ffffff;
-  transition: transform 400ms ease-in-out;
+  transition: 400ms ease-in-out;
 }
 .my-box {
   margin-top: 50px;
@@ -123,9 +123,7 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
   background-color: transparent;
   border:3px solid rgba(0,137,123, 0.8);
 
-  transition:
-    background-color 0.3s ease,
-    transform 400ms ease-in-out;
+  transition: background-color 0.3s ease;
 }
 .my-box:hover {
   border:3px solid transparent;
@@ -188,6 +186,11 @@ div#div-inner {
 }
 
 /*Responsive querys*/
+@media ( max-width: 1025px) {
+  .my-box {
+    padding-top: 12px;
+  }
+}
 @media (max-width: 992px) {
   nav.navbar-default .navbar-header {
     float: none;
@@ -238,7 +241,7 @@ div#div-inner {
   .my-box {
     margin-top: 15px;
     position: relative;
-    /*padding-top: 14px;*/
+    padding-top: 15px;
     padding-left: 8px;
     padding-right: 8px;
     width: 200px;
@@ -273,9 +276,8 @@ div#div-inner {
   }
   .my-box {
     position: relative;
-    padding-top: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-top: 9px;
+    border:2px solid rgba(0,137,123, 0.8);
     width: 120px;
     height: 35px;
     font-size: 8px;
@@ -289,8 +291,6 @@ div#div-inner {
     margin-top: 10px;
     position: relative;
     padding-top: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
     width: 110px;
     height: 25px;
     font-size: 7px;
@@ -298,11 +298,20 @@ div#div-inner {
 }
 @media (max-width: 323px) {
   .thema {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 18px;
     width: 100%;
   }
   .my-box {
-    visibility:hidden;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 90px;
+    height: 22px;
+    font-size: 6px;
+    border:1px solid rgba(0,137,123, 0.8);
+    /*transform: translate(85px, -10px);
+    transition: transform 400ms ease-in-out;*/
   }
 }
