@@ -80,51 +80,6 @@ nav.navbar-default .navbar-toggle:hover {
 nav.navbar-default .navbar-toggle:hover .icon-bar {
   background-color: #26A69A;
 }
-@media (max-width: 992px) {
-  div#nav-bar {
-    /*background-color: rgba(0, 0, 0, 0.5);*/
-    /*margin: auto;*/
-  }
-  nav.navbar-default .navbar-header {
-      float: none;
-  }
-  nav.navbar-default .navbar-left,.navbar-right {
-      float: none !important;
-  }
-  nav.navbar-default .navbar-toggle {
-      display: block;
-  }
-  nav.navbar-default .navbar-collapse {
-      /*background-color: rgba(0, 0, 0, 0.5);*/
-      background-color: #212121;
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  nav.navbar-default .navbar-fixed-top {
-      top: 0;
-      border-width: 0 0 1px;
-  }
-  nav.navbar-default .navbar-collapse.collapse {
-      display: none!important;
-  }
-  nav.navbar-default .navbar-nav {
-      float: none!important;
-      margin-top: 7.5px;
-  }
-  nav.navbar-default .navbar-nav>ul {
-  }
-  nav.navbar-default .navbar-nav>li {
-      padding-right: 0px;
-      float: none;
-  }
-  nav.navbar-default .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
-  nav.navbar-default .collapse.in{
-      display:block !important;
-  }
-}
 
 /*Carousel CSS*/
 .carousel-caption {
@@ -132,6 +87,7 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
   bottom: 0%;
   right: 0%;
   left: 0%;
+  height: 100%;
   padding-top: 0px;
   padding-bottom: 0px;
 
@@ -230,45 +186,123 @@ img#image {
 div#div-inner {
   max-height: 780px;
 }
-/*@media (max-width: 640px) {
-  .box {
-    padding-top: 0px;
-    width: 150px;
-    height: 22px;
-    margin: 0 auto;
-    display: inline-block;
-    background-color: rgba(0,0,0, 0.2);
 
-    font-size: 12px;
-    font-weight: normal;
-    transform: translate(0px, -20px);
-    border:2px solid rgba(0,137,123, 0.8);
+/*Responsive querys*/
+@media (max-width: 992px) {
+  nav.navbar-default .navbar-header {
+    float: none;
   }
-}*/
+  nav.navbar-default .navbar-left,.navbar-right {
+    float: none !important;
+  }
+  nav.navbar-default .navbar-toggle {
+    display: block;
+  }
+  nav.navbar-default .navbar-collapse {
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    background-color: #212121;
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  nav.navbar-default .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+  nav.navbar-default .navbar-collapse.collapse {
+    display: none!important;
+  }
+  nav.navbar-default .navbar-nav {
+    float: none!important;
+    margin-top: 7.5px;
+  }
+  nav.navbar-default .navbar-nav>ul {
+  }
+  nav.navbar-default .navbar-nav>li {
+    padding-right: 0px;
+    float: none;
+  }
+  nav.navbar-default .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  nav.navbar-default .collapse.in{
+    display:block !important;
+  }
+  .alling {
+    height: 45%;
+  }
+  .thema {
+    font-size: 45px;
+    width: 75%;
+  }
+  .my-box {
+    margin-top: 15px;
+    position: relative;
+    /*padding-top: 14px;*/
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 200px;
+    height: 60px;
 
-/*.box {
-position: relative;
-padding-top: 15px;
-padding-left: 8px;
-padding-right: 8px;
-margin: 0 auto;
-width: 200px;
-height: 55px;
-
-font-size: 13px;
-font-weight: bold;
-
-background-color: rgba(0,137,123, 0.5);
-background-color: transparent;
-border:3px solid rgba(0,137,123, 0.8);
-
-transform: translate(0px, 200px);
-transition:
-background-color 0.2s ease,
-transform 400ms ease-in-out;
+    font-size: 13px;
+    font-weight: bold;
+  }
 }
-.box:hover {
-border:3px solid transparent;
-background-color: rgba(0,137,123, 0.5);
-box-sizing: border-box;
-}*/
+@media (max-width: 640px) {
+  .alling {
+    top: 35%;
+    height: 35%;
+  }
+  .thema {
+    font-size: 30px;
+    width: 75%;
+  }
+  .my-box {
+    position: relative;
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 150px;
+    height: 45px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .thema {
+    font-size: 25px;
+  }
+  .my-box {
+    position: relative;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 120px;
+    height: 35px;
+    font-size: 8px;
+  }
+}
+@media (max-width: 387px) {
+  .thema {
+    font-size: 20px;
+  }
+  .my-box {
+    margin-top: 10px;
+    position: relative;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 110px;
+    height: 25px;
+    font-size: 7px;
+  }
+}
+@media (max-width: 323px) {
+  .thema {
+    margin-top: 15px;
+    font-size: 18px;
+    width: 100%;
+  }
+  .my-box {
+    visibility:hidden;
+  }
+}
