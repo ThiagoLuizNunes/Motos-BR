@@ -8,7 +8,47 @@
     function ($stateProvider, $urlRouterProvider, $httpProvider) {
       $stateProvider.state('motos', {
         url: "/",
-        templateUrl: "template/website/motosbr.html"
+        views: {
+          '': {
+            templateUrl: 'template/website/motosbr.html'
+          },
+          'view-motos@motos': {
+            templateUrl: 'template/website/views/main.html'
+          }
+        }
+        // templateUrl: "template/website/motosbr.html"
+      }).state('brand', {
+        url: "marcas",
+        parent: 'motos',
+        views: {
+          'view-motos@motos': {
+            templateUrl: 'template/website/views/brand.html'
+          }
+        }
+      }).state('cylinder', {
+        url: "cilindrada",
+        parent: 'motos',
+        views: {
+          'view-motos@motos': {
+            templateUrl: 'template/website/views/cylinder.html'
+          }
+        }
+      }).state('style', {
+        url: "estilo",
+        parent: 'motos',
+        views: {
+          'view-motos@motos': {
+            templateUrl: 'template/website/views/style.html'
+          }
+        }
+      }).state('comparation', {
+        url: "comparativo",
+        parent: 'motos',
+        views: {
+          'view-motos@motos': {
+            templateUrl: 'template/website/views/comparation.html'
+          }
+        }
       }).state('admin', {
         url: "/admin",
         views: {
