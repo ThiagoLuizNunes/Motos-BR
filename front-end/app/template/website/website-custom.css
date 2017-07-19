@@ -15,6 +15,8 @@
   height: auto;
   background-size: cover;
 }
+
+/*<------NAVBAR CSS------>*/
 nav.navbar-default {
   height: 70px;
   border: 0;
@@ -55,7 +57,6 @@ nav.navbar-default .navbar-header > a:hover {
 nav.navbar-default .navbar-header > a:focus {
   color: #EEEEEE;
 }
-
 nav.navbar-default .container-fluid {
   height: 100%;
   width: 100%;
@@ -79,93 +80,7 @@ nav.navbar-default .navbar-toggle:hover .icon-bar {
   background-color: #26A69A;
 }
 
-/*Carousel CSS*/
-.carousel-caption {
-  top: 0%;
-  bottom: 0%;
-  right: 0%;
-  left: 0%;
-  height: 100%;
-  padding-top: 0px;
-  padding-bottom: 0px;
-
-  background-color: rgba(0,0,0, 0.3);
-}
-.alling {
-  position: relative;
-  top: 40%;
-  height: 50%;
-}
-.thema {
-  position: relative;
-  width: 50%;
-  font-size: 45px;
-  color: #ffffff;
-  transition: 400ms ease-in-out;
-}
-.my-box {
-  margin-top: 50px;
-  position: relative;
-  padding-top: 19px;
-  padding-left: 8px;
-  padding-right: 8px;
-  width: 25%;
-  height: 16%;
-
-  font-size: 13px;
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 2px 2px rgba(0,0,0, 0.2);
-
-  /*background-color: rgba(0,0,0, 0.1);*/
-  background-color: transparent;
-  border:3px solid rgba(0,137,123, 0.8);
-
-  transition: background-color 0.3s ease;
-}
-.my-box:hover {
-  border:3px solid transparent;
-  background-color: rgba(0,137,123, 0.5);
-  box-sizing: border-box;
-}
-
-.carousel-indicators  li {
-  visibility:hidden;
-  background-color: #EEEEEE;
-
-  margin: 5px;
-  width: 12px;
-  height: 12px;
-  border-width: 2px;
-  border-radius: 10%;
-  opacity:0;
-  transition:
-    visibility 0s linear 0.2s,
-    opacity 0.2s linear,
-    background-color 0.2s linear,
-    border-color 0.2s linear;
-}
-.carousel-indicators .active {
-  background-color: transparent;
-  border-color: rgb(0,137,123);
-  width: 20px;
-  height: 20px;
-}
-.carousel-control span {
-  visibility:hidden;
-  opacity:0;
-  transition:visibility 0s linear 0.2s,opacity 0.2s linear;
-}
-.carousel:hover .carousel-indicators li {
-  visibility:visible;
-  opacity:1;
-  transition-delay:0s;
-}
-.carousel:hover .carousel-control span {
-  visibility:visible;
-  opacity:1;
-  transition-delay:0s;
-}
+/*<------NEW CAROUSEL------>*/
 div#myCarousel {
   top: -20px;
 }
@@ -174,16 +89,80 @@ div#div-container {
   width: 100%;
   padding: 0;
 }
-img#image {
-  margin:0 auto;
+div#div-container .carousel-btn {
+  padding: 8%;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+div#div-container:hover .carousel-btn,
+div#div-container:hover .carousel-dots {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+.carousel-dots {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.image-effect2 {
+  max-height: 780px;
   position: relative;
-  max-width: 1920px;
-  max-height: 780px;
+  overflow:hidden;
 }
-div#div-inner {
-  max-height: 780px;
+.image-effect2 figcaption {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
 }
-/*Description CSS*/
+.div-fig {
+  position: relative;
+  margin-top: 25%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+
+  width: 50%;
+  font-size: 45px;
+  font-family: Arcon-Regular, sans-serif;
+  color: #ffffff;
+  transition: 400ms ease-in-out;
+
+  background-color: transparent;
+}
+.div-fig2 {
+  color: #fff;
+  position: relative;
+  text-align: center;
+  margin-top: 2%;
+  margin-left: 42%;
+  margin-right: 42%;
+
+  padding-top: 1%;
+  padding-bottom: 1%;
+
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Arcon-Regular, sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px rgba(0,0,0, 0.2);
+
+  background-color: transparent;
+  border:3px solid rgba(0,137,123, 0.8);
+
+  transition: background-color 0.3s ease;
+}
+.div-fig2:hover {
+  border:3px solid transparent;
+  background-color: rgba(0,137,123, 0.5);
+  box-sizing: border-box;
+}
+
+/*<------DESCRIPTION CSS------>*/
 .div-description {
   max-height: 50%;
   margin-top: 8%;
@@ -191,12 +170,6 @@ div#div-inner {
 .alling-option {
   padding-left: 0px;
   padding-right: 0px;
-}
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 .div-info {
   padding-top: 10%;
@@ -290,10 +263,34 @@ div#div-option {
     padding-bottom: 9%;
   }
 
+  .div-fig {
+    margin-top: 25%;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    font-size: 45px;
+  }
+  .div-fig2 {
+    margin-top: 2%;
+    margin-left: 42%;
+    margin-right: 42%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 13px;
+    font-weight: bold;
+    border:3px solid rgba(0,137,123, 0.8);
+  }
 @media (max-width: 1300px) {
   .div-info {
     padding-top: 8%;
     padding-bottom: 8%;
+  }
+  .div-fig {
+    margin-top: 40%;
+    font-size: 40px;
+  }
+  .div-fig2 {
+    font-size: 12px;
   }
 }
 @media (max-width: 1170px) {
@@ -309,9 +306,9 @@ div#div-option {
   }
 }
 @media ( max-width: 1025px) {
-  .my-box {
+  /*.my-box {
     padding-top: 12px;
-  }
+  }*/
 }
 @media (max-width: 992px) {
   /*Navbar query*/
@@ -353,8 +350,13 @@ div#div-option {
   nav.navbar-default .collapse.in{
     display:block !important;
   }
+  .div-fig2 {
+    margin-left: 40%;
+    margin-right: 40%;
+    font-size: 12px;
+  }
   /*Carousel query*/
-  .alling {
+  /*.alling {
     height: 45%;
   }
   .thema {
@@ -372,11 +374,20 @@ div#div-option {
 
     font-size: 13px;
     font-weight: bold;
-  }
+  }*/
 }
 @media (max-width: 640px) {
+  .div-fig {
+    margin-top: 40%;
+    font-size: 30px;
+  }
+  .div-fig2 {
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 12px;
+  }
   /*Carousel query*/
-  .alling {
+  /*.alling {
     top: 35%;
     height: 35%;
   }
@@ -392,11 +403,18 @@ div#div-option {
     width: 150px;
     height: 45px;
     font-size: 10px;
-  }
+  }*/
 }
 @media (max-width: 450px) {
+  .div-fig {
+    font-size: 20px;
+  }
+  .div-fig2 {
+    margin-left: 30%;
+    margin-right: 30%;
+  }
   /*Carousel query*/
-  .thema {
+  /*.thema {
     font-size: 25px;
   }
   .my-box {
@@ -406,11 +424,17 @@ div#div-option {
     width: 120px;
     height: 35px;
     font-size: 8px;
-  }
+  }*/
 }
 @media (max-width: 387px) {
+  .div-fig {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30%;
+  }
   /*Carousel query*/
-  .thema {
+  /*.thema {
     font-size: 20px;
   }
   .my-box {
@@ -420,11 +444,15 @@ div#div-option {
     width: 110px;
     height: 25px;
     font-size: 7px;
-  }
+  }*/
 }
 @media (max-width: 323px) {
+  .div-fig2 {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
   /*Carousel query*/
-  .thema {
+  /*.thema {
     margin-top: 10px;
     font-size: 18px;
     width: 100%;
@@ -438,5 +466,120 @@ div#div-option {
     height: 22px;
     font-size: 6px;
     border:1px solid rgba(0,137,123, 0.8);
-  }
+  }*/
 }
+/*Carousel CSS*/
+/*
+img#image {
+  margin:0 auto;
+  position: relative;
+  max-width: 1920px;
+  max-height: 780px;
+}
+div#div-inner {
+  max-height: 780px;
+}
+.carousel-caption {
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  background-color: rgba(0,0,0, 0.3);
+}
+.alling {
+  position: relative;
+  top: 40%;
+  height: 50%;
+}
+.thema {
+  position: relative;
+  width: 50%;
+  font-size: 45px;
+  color: #ffffff;
+  transition: 400ms ease-in-out;
+}
+.my-box {
+  margin-top: 50px;
+  position: relative;
+  padding-top: 19px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 25%;
+  height: 16%;
+
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px rgba(0,0,0, 0.2);
+
+  background-color: transparent;
+  border:3px solid rgba(0,137,123, 0.8);
+
+  transition: background-color 0.3s ease;
+}
+.my-box:hover {
+  border:3px solid transparent;
+  background-color: rgba(0,137,123, 0.5);
+  box-sizing: border-box;
+}
+
+.carousel-indicators  li {
+  visibility:hidden;
+  background-color: #EEEEEE;
+
+  margin: 5px;
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+  border-radius: 10%;
+  opacity:0;
+  transition:
+    visibility 0s linear 0.2s,
+    opacity 0.2s linear,
+    background-color 0.2s linear,
+    border-color 0.2s linear;
+}
+.carousel-indicators .active {
+  background-color: transparent;
+  border-color: rgb(0,137,123);
+  width: 20px;
+  height: 20px;
+}
+.carousel-control span {
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0s linear 0.2s,opacity 0.2s linear;
+}
+.carousel:hover .carousel-indicators li {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}
+.carousel:hover .carousel-control span {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}*/
+
+/*.carousel-control span {
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0s linear 0.2s,opacity 0.2s linear;
+}
+.carousel:hover .carousel-indicators li {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}
+.carousel:hover .carousel-control span {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}*/
+/*.carousel-item {
+  max-height: 780px;
+}*/

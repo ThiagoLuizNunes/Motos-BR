@@ -3,22 +3,21 @@ const uglify = require('gulp-uglify')
 const uglifycss = require('gulp-uglifycss')
 const concat = require('gulp-concat')
 
-gulp.task('deps', ['deps.js', 'deps.css', 'deps.fonts'])
+gulp.task('deps', ['deps.js', 'deps.css', 'deps.fonts', 'deps.carousel'])
 
 gulp.task('deps.js', function () {
   gulp.src([
     // 'node_modules/@uirouter/angularjs/release/angular-ui-router.min.js',
     'node_modules/angular/angular.min.js',
     'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+    'node_modules/angular-ui-carousel/dist/ui-carousel.min.js',
     'node_modules/angular-animate/angular-animate.min.js',
     'node_modules/angular-toastr/dist/angular-toastr.tpls.min.js',
-    'node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
-    'node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js',
     'node_modules/admin-lte/dist/js/app.min.js',
-    //
-    'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+
   ])
   .pipe(uglify())
   .pipe(concat('deps.min.js'))
@@ -28,12 +27,11 @@ gulp.task('deps.js', function () {
 gulp.task('deps.css', function () {
   gulp.src([
     'node_modules/angular-toastr/dist/angular-toastr.min.css',
+    'node_modules/angular-ui-carousel/dist/ui-carousel.min.css',
     'node_modules/font-awesome/css/font-awesome.min.css',
-    'node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/admin-lte/dist/css/AdminLTE.min.css',
     'node_modules/admin-lte/dist/css/skins/_all-skins.min.css',
-    //
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
   ])
   .pipe(uglifycss({ "uglyComments": true }))
   .pipe(concat('deps.min.css'))
@@ -44,7 +42,14 @@ gulp.task('deps.fonts', function () {
   gulp.src([
     'node_modules/font-awesome/fonts/*.*',
     'node_modules/bootstrap/fonts/*.*',
-    '',
+    'node_modules/angular-ui-carousel/dist/fonts/*.*',
   ])
   .pipe(gulp.dest('public/assets/fonts'))
+})
+
+gulp.task('deps.carousel', function () {
+  gulp.src([
+    'node_modules/angular-ui-carousel/dist/fonts/*.*',
+  ])
+  .pipe(gulp.dest('public/assets/css/fonts'))
 })

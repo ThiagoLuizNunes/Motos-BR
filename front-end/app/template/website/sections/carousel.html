@@ -1,8 +1,42 @@
-<!-- <section> -->
-  <div id="div-container" class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-      <ol class="carousel-indicators">
+<div id="div-container" class="container">
+  <div ng-controller="CarouselCtrl as ctrl">
+      <ui-carousel
+      slides="ctrl.slides"
+      slides-to-show="1"
+      slides-to-scroll="1"
+      fade="true"
+      initial-slide="1"
+      autoplay="true"
+      autoplay-speed="6000"
+      dots="true">
+        <carousel-item class="myImage">
+          <div class="image">
+            <figure class="image-effect2">
+              <img effect width="100%" max-height="100%" src="{{ item.image }}">
+              <figcaption>
+                <div class="div-fig">{{ item.text }}</div>
+                <div class="div-fig2">{{ item.button }}</div>
+              </figcaption>
+            </figure>
+          </div>
+        </carousel-item>
+        <carousel-prev>
+          <button class="carousel-btn">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </button>
+        </carousel-prev>
+        <carousel-next>
+          <button class="carousel-btn">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </button>
+        </carousel-next>
+      </ui-carousel>
+  </div>
+</div>
+<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+
+      <!-- <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -43,7 +77,5 @@
       </a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
-  </div>
-<!-- </section> -->
+      </a> -->
+  <!-- </div> -->
