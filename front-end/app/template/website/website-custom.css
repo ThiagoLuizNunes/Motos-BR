@@ -90,22 +90,31 @@ div#div-container {
   padding: 0;
 }
 div#div-container .carousel-btn {
-  padding: 8%;
-  color: #fff;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 300ms;
+    padding: 8%;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms
 }
 div#div-container:hover .carousel-btn,
 div#div-container:hover .carousel-dots {
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s linear 0s, opacity 300ms;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms
 }
 .carousel-dots {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 300ms;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms
+}
+.carousel-dots li button:before {
+    border-radius: 50%;
+    border: 3px solid rgba(0, 137, 123, 0.8);
+    color: #fff;
+    transition: 400ms ease-in-out
+}
+.carousel-dots li.carousel-active button:before {
+    opacity: 1
 }
 .image-effect2 {
   max-height: 780px;
