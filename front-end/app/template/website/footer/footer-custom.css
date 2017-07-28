@@ -1,6 +1,12 @@
+@font-face {
+  font-family: Arcon-Regular;
+  src: url('../fonts/Arcon-Regular.otf')
+}
+
 footer {
     background-color: #191b1f;
     min-height: 350px;
+    font-family: Arcon-Regular, sans-serif;
 }
 .footerleft {
     margin-top: 50px;
@@ -8,13 +14,13 @@ footer {
 }
 .logofooter {
     margin-bottom: 10px;
-    font-size: 25px;
+    font-size: 20px;
     color: #fff;
     font-weight: 700;
 }
 .footerleft p {
     color: #fff;
-    font-size: 12px !important;
+    font-size: 13px !important;
     margin-bottom: 15px;
 }
 .footerleft p i {
@@ -31,7 +37,7 @@ footer {
 }
 .footer-ul li {
     line-height: 29px;
-    font-size: 12px;
+    font-size: 14px;
 }
 .footer-ul li a {
     color: #a0a3a4;
@@ -74,13 +80,13 @@ footer {
     margin-bottom: 0px;
 }
 .heading7 {
-    font-size: 21px;
+    font-size: 15px;
     font-weight: 700;
     color: #d9d6d6;
     margin-bottom: 22px;
 }
 .post p {
-    font-size: 12px;
+    font-size: 14px;
     color: #FFF;
     line-height: 20px;
 }
