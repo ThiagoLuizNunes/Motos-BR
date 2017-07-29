@@ -245,9 +245,25 @@ img#image {
 div#div-inner {
     max-height: 780px;
 }
+.grad {
+  width: 100%;
+  height: 140px;
+  /*margin-top: 50px;*/
+
+  background: rgba(33,33,33,0.1); /* For browsers that do not support gradients */
+  /*background: -webkit-linear-gradient(left, rgba(33,33,33,1),rgba(38,166,154,1));
+  background: -o-linear-gradient(right, rgba(33,33,33,1),rgba(38,166,154,1));
+  background: -moz-linear-gradient(right,rgba(33,33,33,1),rgba(38,166,154,1));
+  background: linear-gradient(to right, rgba(33,33,33,1), rgba(38,166,154,1)); */
+
+  /*background: -webkit-linear-gradient(left top, rgba(33,33,33,1),rgba(38,166,154,1));
+  background: -o-linear-gradient(bottom right, rgba(33,33,33,1),rgba(38,166,154,1));
+  background: -moz-linear-gradient(bottomright,rgba(33,33,33,1),rgba(38,166,154,1));
+  background: linear-gradient(to bottom right, rgba(33,33,33,1), rgba(38,166,154,1));*/
+}
 .div-description {
     max-height: 50%;
-    margin-top: 8%;
+    /*margin-top: 8%;*/
 }
 .alling-option {
     padding-left: 0;
