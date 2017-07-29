@@ -108,6 +108,9 @@ nav.navbar-default .navbar-toggle:hover {
 nav.navbar-default .navbar-toggle:hover .icon-bar {
     background-color: #26a69a;
 }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  FRONT PAGE CSS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 /*FADE EFFECT CAROUSEL*/
 .carousel-fade .carousel-inner .item {
   opacity: 0;
@@ -576,4 +579,39 @@ div#div-option {
       height: 30px;
       font-size: 10px;
   }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  BRAND PAGE CSS  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.div-brand {
+  top: -20px;
+  /*background: url("../imgs/backbround-brand.jpg");*/
+  /*background-size: cover;*/
+  background-color: rgba(33,33,33, 0.8);
+  width: 100%;
+  height: 70px;
+}
+.brand-description {
+  position: relative;
+  margin-top: 70px;
+}
+.brand-description > h2 {
+  text-align: center;
+  font-size: 28px;
+  font-family: OpenSans-Light;
+  color: #424242;
+  line-height: 1.3;
+}
+.brand-line {
+  width: 100%;
+  height: 5px;
+  background: rgba(33,33,33,0.1); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, rgba(33,33,33,1),rgba(38,166,154,1));
+  background: -o-linear-gradient(right, rgba(33,33,33,1),rgba(38,166,154,1));
+  background: -moz-linear-gradient(right,rgba(33,33,33,1),rgba(38,166,154,1));
+  background: linear-gradient(to right, rgba(33,33,33,1), rgba(38,166,154,1));
+}
+.brand-itens {
+  width: 100%;
+  height: 200px;
 }
