@@ -3,7 +3,7 @@ const uglify = require('gulp-uglify')
 const uglifycss = require('gulp-uglifycss')
 const concat = require('gulp-concat')
 
-gulp.task('deps', ['deps.js', 'deps.css', 'deps.fonts', 'deps.carousel'])
+gulp.task('deps', ['deps.js', 'deps.css', 'deps.fonts'])
 
 gulp.task('deps.js', function () {
   gulp.src([
