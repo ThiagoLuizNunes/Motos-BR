@@ -593,14 +593,23 @@ div#div-option {
 }
 .brand-description {
   position: relative;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 .brand-description > h2 {
   text-align: center;
-  font-size: 28px;
+  font-size: 25px;
   font-family: OpenSans-Light;
   color: #424242;
   line-height: 1.3;
+}
+.brand-description > h2::before {
+  content: "__";
+  display: block;
+  width: 30px;
+  font-weight: 900;
+  margin: 0 auto 10px;
+  text-align: center;
+  color: #26a69a;
 }
 .brand-line {
   width: 100%;

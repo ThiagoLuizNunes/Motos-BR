@@ -12,12 +12,3 @@ $(window).scroll(function() {
     });
   }
 });
-
-$(document).ready(function() {
-  $('#myCarousel').on('slide.bs.carousel', function () {
-     console.log("sliding started");
-    });
-    $('#myCarousel').on('slid.bs.carousel', function () {
-     console.log("sliding ended");
-    });
-});
