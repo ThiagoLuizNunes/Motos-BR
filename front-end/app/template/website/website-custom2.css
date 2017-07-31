@@ -598,19 +598,36 @@ div#div-option {
 }
 .brand-description > h2 {
   text-align: center;
-  font-size: 25px;
+  margin: 0px;
+  font-size: 32px;
   font-family: OpenSans-Light;
   color: #424242;
   line-height: 1.3;
 }
-.brand-description > h2::before {
-  content: "__";
+.brand-description > h3 {
+  margin-top: 0px;
+  text-align: center;
+  font-size: 32px;
+  font-family: OpenSans-Light;
+  color: #9E9E9E;
+}
+.brand-description > h2::after {
+  content: "_";
   display: block;
   width: 30px;
   font-weight: 900;
   margin: 0 auto 10px;
   text-align: center;
-  color: #26a69a;
+  color: #9E9E9E;
+  /*color: #26a69a;*/
+}
+.brand-description > h6 {
+  text-align: center;
+  font-size: 14px;
+  /*font-weight: 400;*/
+  /*font-family: OpenSans-Light;*/
+  color: #48a3ac;
+  line-height: 1.3;
 }
 .brand-line {
   width: 100%;
@@ -624,6 +641,7 @@ div#div-option {
 .brand-itens {
   width: 100%;
   margin-top: 50px;
+  height: 400px;
 }
 .center-block {
   margin-bottom: 30px;
