@@ -21,6 +21,7 @@ const searchByBrand = (req, res, next) => {
       return handleError(err)
     }
     else {
+      // res.status(200).json("Oiii");
       res.json(motorcycle)
     }
   })
