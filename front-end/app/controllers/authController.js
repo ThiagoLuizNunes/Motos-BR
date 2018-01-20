@@ -10,6 +10,8 @@
     const vm = this
 
     vm.loginMode = true
+
+    vm.changeLabel = () => vm.loginMode ? vm.forgotPassword() : vm.changeMode()
     vm.changeMode = () => vm.loginMode = !vm.loginMode
 
     vm.login = () => {
@@ -19,6 +21,9 @@
       auth.signup(vm.user, err => err ? msgs.addError(err) : $location.path('admin'))
     }
 
+    vm.forgotPassword = () => {
+      console.log('Forgot password!')
+    }
     vm.getUser = () => auth.getUser()
 
     vm.logout = () => {
