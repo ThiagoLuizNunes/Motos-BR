@@ -17,22 +17,33 @@
          <auth-field id="authKey" model="auth.user.key" type="password"
             placeholder="Informe a chave" hide="auth.loginMode"></auth-field>
          <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                <button class="btn btn-primary btn-block btn-flat"
                   ng-click="auth.login()" ng-show="auth.loginMode"
-                  >Entrar</button>
-
+                  >Login
+               </button>
                <button class="btn btn-primary btn-block btn-flat"
                   ng-click="auth.signup()" ng-hide="auth.loginMode"
-                  >Registrar</button>
+                  >Sign up
+               </button>
+            </div>
+            <div class="col-sm-6">
+               <button class="btn btn-primary btn-block btn-flat"
+                  ng-click="auth.changeMode()" ng-show="auth.loginMode"
+                  >Register
+               </button>
+               <button class="btn btn-primary btn-block btn-flat"
+                  ng-click="auth.changeMode()" ng-hide="auth.loginMode"
+                  >Close
+               </button>
             </div>
          </div>
       </form>
       <br/>
       <a href="javascript:;" ng-click="auth.changeMode()">
       {{ auth.loginMode ?
-        'Novo usuário? Registrar aqui!' :
-        'Já é cadastrado? Entrar aqui!' }}
+        'Forgot you password?' :
+        'Are you already registered? Login here!' }}
       </a>
    </div>
 </div>
