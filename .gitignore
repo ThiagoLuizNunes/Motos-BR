@@ -4,3 +4,4 @@ data.json
 *.log
 .env
 eziocss.css
+npm-debug.log
