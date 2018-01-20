@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@uirouter/angularjs": "^1.0.4",
-    "admin-lte": "^2.3.11",
+    "admin-lte": "^2.4.2",
     "angular": "^1.6.4",
     "angular-animate": "^1.6.4",
     "angular-route": "^1.6.5",

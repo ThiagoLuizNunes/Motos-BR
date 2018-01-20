@@ -16,7 +16,7 @@ gulp.task('deps.js', function () {
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js',
-    'node_modules/admin-lte/dist/js/app.min.js',
+    'node_modules/admin-lte/dist/js/adminlte.min.js',
     'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
   ])
   .pipe(uglify())
