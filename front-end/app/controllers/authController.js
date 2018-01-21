@@ -11,7 +11,6 @@
 
     vm.loginMode = true
 
-    vm.changeLabel = () => vm.loginMode ? vm.forgotPassword() : vm.changeMode()
     vm.changeMode = () => vm.loginMode = !vm.loginMode
 
     vm.login = () => {
@@ -22,8 +21,10 @@
     }
 
     vm.forgotPassword = () => {
+      $('#myModal').modal('show');
       console.log('Forgot password!')
     }
+    
     vm.getUser = () => auth.getUser()
 
     vm.logout = () => {
