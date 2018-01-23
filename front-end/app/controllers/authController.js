@@ -21,8 +21,14 @@
     }
 
     vm.forgotPassword = () => {
-      $('#myModal').modal('show');
+      $('#myModal').modal('show')
       console.log('Forgot password!')
+      // console.log(vm.user.email)
+    }
+
+    let btnReset = document.getElementById('btnReset')
+    btnReset.onclick = () => {
+      console.log('Password reset!')
     }
     
     vm.getUser = () => auth.getUser()
