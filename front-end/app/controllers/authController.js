@@ -10,6 +10,8 @@
     const vm = this
 
     vm.loginMode = true
+    vm.btnReset = document.getElementById('btnReset')
+    vm.input = document.getElementById('email')
 
     vm.changeMode = () => vm.loginMode = !vm.loginMode
 
@@ -22,13 +24,15 @@
 
     vm.forgotPassword = () => {
       $('#myModal').modal('show')
-      console.log('Forgot password!')
-      // console.log(vm.user.email)
     }
 
-    let btnReset = document.getElementById('btnReset')
-    btnReset.onclick = () => {
-      console.log('Password reset!')
+    vm.btnReset.onclick = () => {
+      if (vm.input.value != '' && vm.input.validity.valid) {
+        console.log('valido')
+        console.log('Password reset!')
+      } else {
+        msgs.addError('Email address invalid!')
+      }
     }
     
     vm.getUser = () => auth.getUser()
