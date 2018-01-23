@@ -26,7 +26,7 @@
       $('#myModal').modal('show')
     }
 
-    vm.btnReset.onclick = () => {
+    vm.resetPassword = () => {
       if (vm.input.value != '' && vm.input.validity.valid) {
         console.log('valido')
         console.log('Password reset!')
