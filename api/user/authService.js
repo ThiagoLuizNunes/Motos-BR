@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('./user')
 const env = require('../../.env')
+const nodemailer = require('nodemailer')
 
 const emailRegex = /\S+@\S+\.\S+/
 const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,12})/
@@ -87,8 +88,8 @@ const signup = (req, res, next) => {
   })
 }
 
-const forgotPassword = (req, res, next) => {
-  const name = req.body.name || ''
+const resetPassword = (req, res, next) => {
+  const email = req.body.email || ''
 
   if(!email.match(emailRegex)) {
     return res.status(400).send({errors: ['Email invalid!']})
@@ -97,10 +98,35 @@ const forgotPassword = (req, res, next) => {
   User.findOne({email}, (err, user) => {
     if (err) {
       return sendErrorsFromDB(res, err)
-    } else {
-
-      return res.status(200).send('Password reseted!')
+    } 
+    else {
+      let transport = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: env.admin_email,
+          pass: env.admin_password
+        }
+      })
+      let emailToSend = {
+        from: env.admin_email,
+        to: email,
+        subject: 'Reset password',
+        html: `
+        <div> 
+          <h1>MotosBR</h1>
+          <h4>Link to reset your password</h4>
+        </div>`
+      }
+      transport.sendMail(emailToSend, (err, info) => {
+        if (err) {
+          return res.status(400).send(err)
+        } 
+        else {
+          return res.status(200).send({message: 'Email sent with success', info: info})
+        }
+      })
     }
   })
 }
-module.exports = { login, signup, validateToken, forgotPassword }
+
+module.exports = { login, signup, validateToken, resetPassword }
