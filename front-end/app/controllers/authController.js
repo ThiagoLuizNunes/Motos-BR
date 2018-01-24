@@ -3,6 +3,7 @@
     '$location',
     'msgs',
     'auth',
+    'consts',
     AuthController
   ])
 
@@ -28,8 +29,8 @@
 
     vm.resetPassword = () => {
       if (vm.input.value != '' && vm.input.validity.valid) {
-        console.log('valido')
-        console.log('Password reset!')
+        auth.resetPassword({email: vm.input.value}, err => err ? msgs.addError(err) : null)  
+        msgs.addSuccess('Email sent')      
       } else {
         msgs.addError('Email address invalid!')
       }

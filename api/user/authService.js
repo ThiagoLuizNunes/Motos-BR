@@ -96,10 +96,11 @@ const resetPassword = (req, res, next) => {
   }
 
   User.findOne({email}, (err, user) => {
+    console.log(email)
     if (err) {
       return sendErrorsFromDB(res, err)
     } 
-    else {
+    else if (user) {
       let transport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -125,6 +126,9 @@ const resetPassword = (req, res, next) => {
           return res.status(200).send({message: 'Email sent with success', info: info})
         }
       })
+    } 
+    else {
+      return res.status(400).send({errors: ['Email not found']})
     }
   })
 }

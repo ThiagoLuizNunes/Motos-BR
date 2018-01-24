@@ -18,19 +18,22 @@
     function signup(user, callback) {
       submit('signup', user, callback)
     }
+
     function login(user, callback) {
       submit('login', user, callback)
     }
+
     function submit(url, user, callback) {
       $http.post(`${consts.oapiUrl}/${url}`, user)
-        .then(resp => {
-          localStorage.setItem(consts.userKey, JSON.stringify(resp.data))
-          $http.defaults.headers.common.Authorization = resp.data.token
-          if (callback) callback(null, resp.data)
-        }).catch(function (resp) {
-          if (callback) callback(resp.data.errors, null)
+        .then(response => {
+          localStorage.setItem(consts.userKey, JSON.stringify(response.data))
+          $http.defaults.headers.common.Authorization = response.data.token
+          if (callback) callback(null, response.data)
+        }).catch(function (response) {
+          if (callback) callback(response.data.errors, null)
         })
     }
+
     function logout(callback) {
       user = null
       localStorage.removeItem(consts.userKey)
@@ -42,22 +45,30 @@
 
       if (token) {
         $http.post(`${consts.oapiUrl}/validateToken`, { token })
-          .then(resp => {
-            if (!resp.data.valid) {
+          .then(response => {
+            if (!response.data.valid) {
             console.log('Erro validate response, logout() is call');
             logout()
             } else {
               $http.defaults.headers.common.Authorization = getUser().token
             }
-            if (callback) callback(null, resp.data.valid)
-          }).catch(function (resp) {
-              if (callback) callback(resp.data.errors)
+            if (callback) callback(null, response.data.valid)
+          }).catch(function (response) {
+              if (callback) callback(response.data.errors)
           })
       } else {
           if (callback) callback('Token inválido.')
       }
     }
 
-    return { signup, login, logout, getUser, validateToken }
+    function resetPassword(email, callback) {
+      $http.post(`${consts.oapiUrl}/resetPassword`, email)
+        .then(response => {
+          console.log(response.data)
+        }).catch(function (response) {
+          if (callback) callback(response.data.errors)
+        })
+    }
+    return { signup, login, logout, getUser, validateToken, resetPassword }
   }
 })()

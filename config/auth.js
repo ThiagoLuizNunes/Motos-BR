@@ -5,6 +5,7 @@ module.exports = (req, res, next) => {
 
   // CORS preflight request
   if(req.method === 'OPTIONS') {
+    console.log('OIII')
     next()
   }
   else {
