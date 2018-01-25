@@ -29,8 +29,7 @@
 
     vm.resetPassword = () => {
       if (vm.input.value != '' && vm.input.validity.valid) {
-        auth.resetPassword({email: vm.input.value}, err => err ? msgs.addError(err) : null)  
-        msgs.addSuccess('Email sent')      
+        auth.resetPassword({email: vm.input.value})
       } else {
         msgs.addError('Email address invalid!')
       }

@@ -2,10 +2,11 @@
   angular.module('motorcycleBR').factory('auth', [
     '$http',
     'consts',
+    'msgs',
     AuthFactory
   ])
 
-  function AuthFactory($http, consts) {
+  function AuthFactory($http, consts, msgs) {
 
     let user = null
     function getUser() {
@@ -61,12 +62,13 @@
       }
     }
 
-    function resetPassword(email, callback) {
+    function resetPassword(email) {
       $http.post(`${consts.oapiUrl}/resetPassword`, email)
         .then(response => {
           console.log(response.data)
+          msgs.addSuccess('Email sent!')
         }).catch(function (response) {
-          if (callback) callback(response.data.errors)
+          msgs.addError(response.data.errors)
         })
     }
     return { signup, login, logout, getUser, validateToken, resetPassword }
