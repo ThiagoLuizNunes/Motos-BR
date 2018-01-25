@@ -96,7 +96,6 @@ const resetPassword = (req, res, next) => {
   }
 
   User.findOne({email}, (err, user) => {
-    console.log(email)
     if (err) {
       return sendErrorsFromDB(res, err)
     } 
