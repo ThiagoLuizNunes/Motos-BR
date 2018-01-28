@@ -19,6 +19,7 @@
     vm.login = () => {
       auth.login(vm.user, err => err ? msgs.addError(err) : $location.path('admin'))
     }
+    
     vm.signup = () => {
       auth.signup(vm.user, err => err ? msgs.addError(err) : $location.path('admin'))
     }
