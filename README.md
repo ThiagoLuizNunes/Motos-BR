@@ -1,5 +1,7 @@
 # Motos-BR
 
+[![Build Status](https://travis-ci.org/ThiagoLuizNunes/Motos-BR.svg?branch=master)](https://travis-ci.org/ThiagoLuizNunes/Motos-BR)
+
 Toolkit: MongoDB | Express.js| Angular.js | Node.js
 
 ### Requirements ###
