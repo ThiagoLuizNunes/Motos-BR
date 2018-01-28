@@ -6,3 +6,6 @@ before_script:
   - npm install
   - cd front-end
   - npm install
+branch: 
+  only: 
+    - master
