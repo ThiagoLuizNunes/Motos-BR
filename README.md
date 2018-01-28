@@ -1,6 +1,8 @@
 # Motos-BR
 
 [![Build Status](https://travis-ci.org/ThiagoLuizNunes/Motos-BR.svg?branch=master)](https://travis-ci.org/ThiagoLuizNunes/Motos-BR)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2f363b6b8e5025adc433/maintainability)](https://codeclimate.com/github/ThiagoLuizNunes/Motos-BR/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2f363b6b8e5025adc433/test_coverage)](https://codeclimate.com/github/ThiagoLuizNunes/Motos-BR/test_coverage)
 
 Toolkit: MongoDB | Express.js| Angular.js | Node.js
 
