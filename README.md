@@ -30,7 +30,7 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
 
 3. Start application
   ```
-  use@user:~/path_to_cloned_folder **npm run dev | npm run production**
+  use@user:~/path_to_cloned_folder **npm start**
   ```
   ```
   Access the browser http://localhost:4000
@@ -47,4 +47,10 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
   ```
   user@user:~/path_to_cloned_folder/front-end$ **npm install**
   ```
-  
+3. Start application:
+```
+  use@user:~/path_to_cloned_folder/front-end **npm run dev**
+  ```
+  ```
+  Access the browser http://localhost:3000
+  ```
