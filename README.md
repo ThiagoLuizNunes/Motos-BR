@@ -19,18 +19,18 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
 
 1. After 'git clone' command, run the following commands to install dependencies:
   ```
-  user@user:~/path_to_cloned_folder$ **npm install**
+  user@user:~/path_to_cloned_folder$ npm install
   ```
   - **Manually install the dependencies that may have not been installed by the above command.** :white_check_mark:
 
 2. Start MongoDB
   ```
-  user@user:~/shell$ **mongod**
+  user@user:~/shell$ mongod
   ```
 
 3. Start application
   ```
-  use@user:~/path_to_cloned_folder **npm start**
+  use@user:~/path_to_cloned_folder npm start
   ```
   ```
   Access the browser http://localhost:4000
@@ -40,16 +40,16 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
 
 1. After back-end installation, go to front-end directory:
   ```
-  user@user:~/path_to_cloned_folder$ **cd front-end**
+  user@user:~/path_to_cloned_folder$ cd front-end
   ```
   
 2. Install the dependencies:
   ```
-  user@user:~/path_to_cloned_folder/front-end$ **npm install**
+  user@user:~/path_to_cloned_folder/front-end$ npm install
   ```
 3. Start application:
 ```
-  use@user:~/path_to_cloned_folder/front-end **npm run dev**
+  use@user:~/path_to_cloned_folder/front-end npm run dev
   ```
   ```
   Access the browser http://localhost:3000
