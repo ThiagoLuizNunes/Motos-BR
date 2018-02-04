@@ -21,13 +21,15 @@ const login = (req, res, next) => {
   User.findOne({email}, (err, user) => {
     if(err) {
       return sendErrorsFromDB(res, err)
-    } else if (user && bcrypt.compareSync(password, user.password)) {
+    } 
+    else if (user && bcrypt.compareSync(password, user.password)) {
       const token = jwt.sign(user, env.authSecret, {
         expiresIn: "1 day"
       })
       const { name, email } = user
       res.json({ name, email, token })
-    } else {
+    } 
+    else {
       return res.status(400).send({errors: ['Usuário/Senha inválidos']})
     }
   })
@@ -61,6 +63,7 @@ const signup = (req, res, next) => {
 
   const salt = bcrypt.genSaltSync()
   const passwordHash = bcrypt.hashSync(password, salt)
+  
   if(!bcrypt.compareSync(confirmPassword, passwordHash)) {
     return res.status(400).send({errors: ['Passwords do not match.']})
   }
@@ -73,14 +76,17 @@ const signup = (req, res, next) => {
   User.findOne({email}, (err, user) => {
     if(err) {
       return sendErrorsFromDB(res, err)
-    } else if (user) {
+    } 
+    else if (user) {
       return res.status(400).send({errors: ['User already registered!']})
-    } else {
+    } 
+    else {
       const newUser = new User({ name, email, password: passwordHash })
       newUser.save(err => {
         if(err) {
           return sendErrorsFromDB(res, err)
-        } else {
+        } 
+        else {
           login(req, res, next)
         }
       })
