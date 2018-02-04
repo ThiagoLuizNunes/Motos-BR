@@ -13,7 +13,7 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
 * **[Express.js 4.15.2](http://expressjs.com/)** :white_check_mark:
 * **[MongoDB 3.4.4](https://www.mongodb.com/)** :white_check_mark:
 
-### Installation ###
+### Installation - Back-end ###
 
 **Obs.: The following instructions were tested on Ubuntu distribution.**
 
@@ -26,4 +26,13 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
 
 3. Start application
   - use@user:~/path_to_cloned_folder **npm run dev | npm run production**
-  - Access the browser http://localhost:3003
+  - Access the browser http://localhost:4000
+
+### Installation - Front-end ###
+
+1. After back-end installation, go to front-end directory:
+  ```user@user:~/path_to_cloned_folder$ **cd front-end**```
+  
+2. Install the dependencies:
+  ```user@user:~/path_to_cloned_folder/front-end$ **npm install**```
+  
