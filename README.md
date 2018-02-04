@@ -54,3 +54,14 @@ Toolkit: MongoDB | Express.js| Angular.js | Node.js
   ```
   Access the browser http://localhost:3000
   ```
+## Authors
+
+* Thiago Luiz Pereira Nunes ([ThiagoLuizNunes](https://github.com/ThiagoLuizNunes)) thiago.luiz@lavid.ufpb.br
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+>Created By **[ThiagoLuizNunes](https://www.linkedin.com/in/thiago-luiz-507483112/)** 2018.
+
+---
