@@ -62,8 +62,8 @@
       }
     }
 
-    function resetPassword(email) {
-      $http.post(`${consts.oapiUrl}/resetPassword`, email)
+    function forgotPassword(email) {
+      $http.post(`${consts.oapiUrl}/forgotPassword`, email)
         .then(response => {
           console.log(response.data)
           msgs.addSuccess('Email sent!')
@@ -71,6 +71,6 @@
           msgs.addError(response.data.errors)
         })
     }
-    return { signup, login, logout, getUser, validateToken, resetPassword }
+    return { signup, login, logout, getUser, validateToken, forgotPassword }
   }
 })()

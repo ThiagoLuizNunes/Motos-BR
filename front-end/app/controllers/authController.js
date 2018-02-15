@@ -28,9 +28,9 @@
       $('#myModal').modal('show')
     }
 
-    vm.resetPassword = () => {
+    vm.sendEmail = () => {
       if (vm.input.value != '' && vm.input.validity.valid) {
-        auth.resetPassword({email: vm.input.value})
+        auth.forgotPassword({email: vm.input.value})
       } else {
         msgs.addError('Email address invalid!')
       }
