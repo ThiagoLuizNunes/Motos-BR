@@ -94,7 +94,7 @@ const signup = (req, res, next) => {
   })
 }
 
-const resetPassword = (req, res, next) => {
+const forgotPassword = (req, res, next) => {
   const email = req.body.email || ''
 
   if(!email.match(emailRegex)) {
@@ -106,6 +106,19 @@ const resetPassword = (req, res, next) => {
       return sendErrorsFromDB(res, err)
     } 
     else if (user) {
+      user.resetPasswordToken = jwt.sign(user, env.passwordSecret, {
+        expiresIn: "1 hour"
+      })
+
+      user.save((err, update) => {
+        if (err) {
+          return handleError(error)
+        } 
+        else {
+          res.status(200).send('Token updated')
+        }
+      })
+
       let transport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -113,15 +126,22 @@ const resetPassword = (req, res, next) => {
           pass: env.admin_password
         }
       })
+
+      const resetToken = jwt.sign(user, env.passwordSecret, {
+        expiresIn: "1 hour"
+      })
+
       let emailToSend = {
         from: env.admin_email,
         to: email,
         subject: 'Reset password',
         html: `
-        <div> 
-          <h1>MotosBR</h1>
-          <h4>Link to reset your password</h4>
-        </div>`
+        You are receiving this because you (or someone else) have requested the reset of the password for your account.
+        Please click on the following link, or paste this into your browser to complete the process:
+        http://${req.headers.host}
+        http://localhost:3000/#!/auth
+        If you did not request this, please ignore this email and your password will remain unchanged.
+        `
       }
       transport.sendMail(emailToSend, (err, info) => {
         if (err) {
@@ -138,4 +158,14 @@ const resetPassword = (req, res, next) => {
   })
 }
 
-module.exports = { login, signup, validateToken, resetPassword }
+const resetPassword = (req, res, next) => {
+  const token = req.body.token || ''
+
+  jwt.verify(token, env.passwordSecret, function(err, decoded) {
+    return res.status(200).send({valid: !err})
+  })
+
+  res.json('Olá')
+}
+
+module.exports = { login, signup, validateToken, forgotPassword, resetPassword }

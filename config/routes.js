@@ -17,7 +17,8 @@ module.exports = function (server) {
   openApi.post('/login', AuthService.login)
   openApi.post('/signup', AuthService.signup)
   openApi.post('/validateToken', AuthService.validateToken)
-  openApi.post('/resetPassword', AuthService.resetPassword)
+  openApi.post('/forgotPassword', AuthService.forgotPassword)
+  openApi.get('/resetPassword/:token', AuthService.resetPassword)
 
 
   //Search's routes
