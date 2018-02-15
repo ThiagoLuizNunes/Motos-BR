@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const User = require('./user')
 const env = require('../../.env')
 const nodemailer = require('nodemailer')
+const crypto = require('crypto')
 
 const emailRegex = /\S+@\S+\.\S+/
 const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,12})/
@@ -96,7 +97,6 @@ const signup = (req, res, next) => {
 
 const forgotPassword = (req, res, next) => {
   const email = req.body.email || ''
-
   if(!email.match(emailRegex)) {
     return res.status(400).send({errors: ['Email invalid!']})
   }
@@ -106,10 +106,13 @@ const forgotPassword = (req, res, next) => {
       return sendErrorsFromDB(res, err)
     } 
     else if (user) {
-      user.resetPasswordToken = jwt.sign(user, env.passwordSecret, {
-        expiresIn: "1 hour"
-      })
+      const secret = env.passwordSecret
+      const token = crypto.createHmac('sha256', secret)
+                         .update('Reset password!')
+                         .digest('hex')
 
+      user.resetPasswordToken = token
+      user.resetPasswordExpires = Date.now() + 3600000
       user.save((err, update) => {
         if (err) {
           return handleError(error)
@@ -118,42 +121,42 @@ const forgotPassword = (req, res, next) => {
           res.status(200).send('Token updated')
         }
       })
-
-      let transport = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-          user: env.admin_email,
-          pass: env.admin_password
-        }
-      })
-
-      const resetToken = jwt.sign(user, env.passwordSecret, {
-        expiresIn: "1 hour"
-      })
-
-      let emailToSend = {
-        from: env.admin_email,
-        to: email,
-        subject: 'Reset password',
-        html: `
-        You are receiving this because you (or someone else) have requested the reset of the password for your account.
-        Please click on the following link, or paste this into your browser to complete the process:
-        http://${req.headers.host}
-        http://localhost:3000/#!/auth
-        If you did not request this, please ignore this email and your password will remain unchanged.
-        `
-      }
-      transport.sendMail(emailToSend, (err, info) => {
-        if (err) {
-          return res.status(400).send(err)
-        } 
-        else {
-          return res.status(200).send({message: 'Email sent with success', info: info})
-        }
-      })
-    } 
+      sendEmail(req, email, token)
+    }
     else {
       return res.status(400).send({errors: ['Email not found']})
+    }
+  })
+}
+
+const sendEmail = (req, email, token) => {
+  let transport = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: env.admin_email,
+      pass: env.admin_password
+    }
+  })
+
+  let emailToSend = {
+    from: env.admin_email,
+    to: email,
+    subject: 'Reset password',
+    html: `
+    You are receiving this because you (or someone else) have requested the reset of the password for your account.
+    Please click on the following link, or paste this into your browser to complete the process:
+    http://${req.headers.host}
+    http://localhost:3000/#!/resetPassword/${token}
+    If you did not request this, please ignore this email and your password will remain unchanged.
+    `
+  }
+
+  transport.sendMail(emailToSend, (err, info) => {
+    if (err) {
+      return res.status(400).send(err)
+    } 
+    else {
+      return res.status(200).send({message: 'Email sent with success', info: info})
     }
   })
 }
