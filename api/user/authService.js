@@ -145,8 +145,7 @@ const sendEmail = (req, email, token) => {
     html: `
     You are receiving this because you (or someone else) have requested the reset of the password for your account.
     Please click on the following link, or paste this into your browser to complete the process:
-    http://${req.headers.host}
-    http://localhost:3000/#!/resetPassword/${token}
+    http://${req.headers.host}/resetPassword/${token}
     If you did not request this, please ignore this email and your password will remain unchanged.
     `
   }
@@ -162,13 +161,14 @@ const sendEmail = (req, email, token) => {
 }
 
 const resetPassword = (req, res, next) => {
-  const token = req.body.token || ''
-
-  jwt.verify(token, env.passwordSecret, function(err, decoded) {
-    return res.status(200).send({valid: !err})
+  const token = req.params.hash || ''
+  console.log(token)
+  User.findOne({ resetPasswordToken: token, resetPasswordExpires: { $gt: Date.now()}}, (err, user) => {
+    if (err) {
+      return sendErrorsFromDB(res, err)
+    } 
+    res.json(token)
   })
-
-  res.json('Olá')
 }
 
 module.exports = { login, signup, validateToken, forgotPassword, resetPassword }
