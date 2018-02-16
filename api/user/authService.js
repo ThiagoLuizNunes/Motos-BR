@@ -5,6 +5,7 @@ const User = require('./user')
 const env = require('../../.env')
 const nodemailer = require('nodemailer')
 const crypto = require('crypto')
+const path = require('path')
 
 const emailRegex = /\S+@\S+\.\S+/
 const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,12})/
@@ -163,11 +164,17 @@ const sendEmail = (req, email, token) => {
 const resetPassword = (req, res, next) => {
   const token = req.params.hash || ''
   console.log(token)
-  User.findOne({ resetPasswordToken: token, resetPasswordExpires: { $gt: Date.now()}}, (err, user) => {
+  User.findOne({ resetPasswordToken: token/*, resetPasswordExpires: { $gt: Date.now()}*/}, (err, user) => {
     if (err) {
       return sendErrorsFromDB(res, err)
-    } 
-    res.json(token)
+    }
+    else if (user) {
+      res.sendFile(path.join(__dirname, '/reset.html'))
+      // res.sendFile(path.join(__dirname, '../../public/reset.html'))
+    }
+    else {
+      res.status(400).send('Token invalid!')
+    }
   })
 }
 
