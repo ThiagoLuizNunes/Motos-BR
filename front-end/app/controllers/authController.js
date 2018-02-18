@@ -31,6 +31,7 @@
     vm.sendEmail = () => {
       if (vm.input.value != '' && vm.input.validity.valid) {
         auth.forgotPassword({email: vm.input.value})
+        vm.input.value = ''
       } else {
         msgs.addError('Email address invalid!')
       }
