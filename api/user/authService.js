@@ -178,4 +178,9 @@ const resetPassword = (req, res, next) => {
   })
 }
 
+const confirmPassword = (req, res, next) => {
+  const password = req.body.password
+  
+}
+
 module.exports = { login, signup, validateToken, forgotPassword, resetPassword }
