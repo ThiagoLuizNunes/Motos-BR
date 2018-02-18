@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt')
 const User = require('./user')
 const env = require('../../.env')
 const nodemailer = require('nodemailer')
-const crypto = require('crypto')
 const path = require('path')
 
 const emailRegex = /\S+@\S+\.\S+/
@@ -107,22 +106,19 @@ const forgotPassword = (req, res, next) => {
       return sendErrorsFromDB(res, err)
     } 
     else if (user) {
-      const secret = env.passwordSecret
-      const token = crypto.createHmac('sha256', secret)
-                         .update('Reset password!')
-                         .digest('hex')
-
+      const token = jwt.sign(user, env.authSecret, {
+        expiresIn: "5 minute"
+      })
       user.resetPasswordToken = token
-      user.resetPasswordExpires = Date.now() + 3600000
       user.save((err, update) => {
         if (err) {
           return handleError(error)
         } 
         else {
           res.status(200).send('Token updated')
+          sendEmail(req, email, token)
         }
       })
-      sendEmail(req, email, token)
     }
     else {
       return res.status(400).send({errors: ['Email not found']})
@@ -146,7 +142,7 @@ const sendEmail = (req, email, token) => {
     html: `
     You are receiving this because you (or someone else) have requested the reset of the password for your account.
     Please click on the following link, or paste this into your browser to complete the process:
-    http://${req.headers.host}/resetPassword/${token}
+    <a href="http://${req.headers.host}/resetPassword/${token}">link to reset</a>
     If you did not request this, please ignore this email and your password will remain unchanged.
     `
   }
@@ -162,9 +158,20 @@ const sendEmail = (req, email, token) => {
 }
 
 const resetPassword = (req, res, next) => {
-  const token = req.params.hash || ''
-  console.log(token)
-  User.findOne({ resetPasswordToken: token/*, resetPasswordExpires: { $gt: Date.now()}*/}, (err, user) => {
+  const token = req.params.token || ''
+
+  jwt.verify(token, env.authSecret, function(err, decoded) {
+    if (err) {
+      return res.status(400).send(err)
+    } 
+    else {
+      findToken(req, res, token)
+    }
+  })
+}
+
+const findToken = (req, res, token) => {
+  User.findOne({ resetPasswordToken: token }, (err, user) => {
     if (err) {
       return sendErrorsFromDB(res, err)
     }
@@ -177,7 +184,6 @@ const resetPassword = (req, res, next) => {
     }
   })
 }
-
 const confirmPassword = (req, res, next) => {
   const password = req.body.password
   
