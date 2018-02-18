@@ -1,6 +1,10 @@
 <div class="login-box" ng-controller="AuthCtrl as auth">
    <div><img src="/assets/imgs/moto2.png" class="authImage"></div>
-   <div class="login-logo"><b> Motos</b> BR</div>
+   <div class="login-logo">
+      <a href="#!">
+         <b> Motos</b> BR
+      </a>
+   </div>
    <div class="login-box-body">
       <p class="login-box-msg">Welcome!</p>
       <form>
@@ -47,7 +51,7 @@
          Are you already registered? Login here!
       </a>
    </div>
-
+   
    <!-- Modal -->
    <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">
@@ -77,10 +81,15 @@
       </div>
    </div>
 </div>
+<footer class="" ng-include="'../template/website/footer/footer.html'"></footer>
+
 <style>
    html, .wrapper { background-color: #fff!important; }
    .login-box-body { background-color: #eee; }
    .modal .modal-dialog {
       max-width: 400px;
+   }
+   .path-site {
+      color: #26a69a;
    }
 </style>
