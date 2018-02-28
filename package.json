@@ -11,19 +11,19 @@
   "author": "Thiago Luiz",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "express-query-int": "^1.0.1",
-    "jsonwebtoken": "^7.4.3",
-    "lodash": "^4.17.4",
-    "mongoose": "^4.10.7",
-    "mongoose-paginate": "^5.0.3",
-    "node-restful": "^0.2.6",
-    "nodemailer": "^4.4.2",
-    "pm2": "^2.5.0"
+    "bcrypt": "1.0.3",
+    "body-parser": "1.17.2",
+    "express": "4.15.3",
+    "express-query-int": "1.0.1",
+    "jsonwebtoken": "7.4.3",
+    "lodash": "4.17.4",
+    "mongoose": "4.10.7",
+    "mongoose-paginate": "5.0.3",
+    "node-restful": "0.2.6",
+    "nodemailer": "4.4.2",
+    "pm2": "2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "1.11.0"
   }
 }
