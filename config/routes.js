@@ -22,7 +22,7 @@ module.exports = function (server) {
 
 
   //Search's routes
-  require('../api/motorcycle/motorcycleRoutes')(server, MotorcycleSearch)
+  require('../api/motorcycle/motorcycleRoutes')(openApi, MotorcycleSearch)
 
   /*
     * API closed routes

@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const Motorcycle = require('./motorcycle')
-const data = require('./data')
+// const data = require('./data')
 
 // require('./insertData')(data, Motorcycle)
 //Create REST API, adds CRUD to Mongog's schema
